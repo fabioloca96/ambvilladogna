@@ -1,0 +1,110 @@
+/* 🌿 Sezione Storia */
+.storia {
+    padding: 60px 20px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.storia-container {
+    display: flex;
+    max-width: 1200px;
+    align-items: center;
+    gap: 30px;
+}
+
+.storia-content {
+    flex: 1;
+    text-align: left;
+}
+
+.storia-content h2 {
+    font-size: 2rem;
+    color: #4C7031;
+    margin-bottom: 15px;
+}
+
+.storia-content p {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.5;
+}
+
+.storia-image {
+    flex: 1;
+}
+
+.storia-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 🌿 Team */
+.team {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f8f8f8;
+}
+
+.team h2 {
+    font-size: 2rem;
+    color: #4C7031;
+    margin-bottom: 30px;
+}
+
+.team-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* 🔥 Card dei Membri */
+.team-member {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px;
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: scale(1.05);
+}
+
+/* 🌿 Immagini Team */
+.team-member img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* 🌿 Testo Nome e Ruolo */
+.team-member h3 {
+    color: #4C7031;
+    margin: 10px 0 5px;
+    font-size: 1.2rem;
+}
+
+.team-member p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* 🔥 Responsive */
+@media (max-width: 768px) {
+    .storia-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .team-container {
+        flex-direction: column;
+    }
+}

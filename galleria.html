@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galleria Fotografica - Gruppo Micologico</title>
+    <link rel="stylesheet" href="stylegalleria.css">
+    <script defer src="scriptgalleria.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="chi-siamo.html">Chi Siamo</a></li>
+                <li><a href="funghi.html">Esplora i Funghi</a></li>
+                <li><a href="eventi.html">Eventi e Uscite</a></li>
+                <li><a href="galleria.html" class="active">Galleria</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero galleria">
+        <h1>Galleria Fotografica</h1>
+        <p>Esplora i funghi della nostra regione attraverso le immagini</p>
+    </section>
+
+    <section class="galleria-container">
+        <div class="grid">
+            <div class="fungo" onclick="apriLightbox('img/fungo1.jpg', 'Amanita Muscaria')">
+                <img src="img/fungo1.jpg" alt="Amanita Muscaria">
+                <div class="caption">Amanita Muscaria</div>
+            </div>
+            <div class="fungo" onclick="apriLightbox('img/fungo2.jpg', 'Boletus Edulis')">
+                <img src="img/fungo2.jpg" alt="Boletus Edulis">
+                <div class="caption">Boletus Edulis</div>
+            </div>
+            <div class="fungo" onclick="apriLightbox('img/fungo3.jpg', 'Cantharellus Cibarius')">
+                <img src="img/fungo3.jpg" alt="Cantharellus Cibarius">
+                <div class="caption">Cantharellus Cibarius</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <span class="close" onclick="chiudiLightbox()">&times;</span>
+            <img id="lightbox-img" src="" alt="">
+            <p id="lightbox-caption"></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Gruppo Micologico - Tutti i diritti riservati</p>
+    </footer>
+</body>
+</html>

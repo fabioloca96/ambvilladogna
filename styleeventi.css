@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f5e1;
+    color: #333;
+}
+
+/* Navbar */
+nav ul {
+    display: flex;
+    list-style: none;
+    background: #6b4226;
+    padding: 10px;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a.active {
+    border-bottom: 2px solid #f4a261;
+}
+
+/* Hero Section */
+.hero.eventi {
+    background: url('img/eventi-hero.jpg') center/cover no-repeat;
+    text-align: center;
+    padding: 80px 20px;
+    color: white;
+}
+
+/* Countdown */
+.countdown {
+    text-align: center;
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+
+/* Calendario */
+.calendario {
+    text-align: center;
+    padding: 20px;
+}
+
+.eventi-lista {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.evento {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    transition: transform 0.3s ease;
+}
+
+.evento:hover {
+    transform: scale(1.05);
+}
+
+/* Popup Evento */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    max-width: 400px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    background: #6b4226;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #8b5e3c;
+}

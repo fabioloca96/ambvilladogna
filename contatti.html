@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti - Gruppo Micologico</title>
+    <link rel="stylesheet" href="stylecontatti.css">
+    <script defer src="scriptcontatti.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=INSERISCI_LA_TUA_API_KEY&callback=initMap" async defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="chi-siamo.html">Chi Siamo</a></li>
+                <li><a href="funghi.html">Esplora i Funghi</a></li>
+                <li><a href="eventi.html">Eventi e Uscite</a></li>
+                <li><a href="galleria.html">Galleria</a></li>
+                <li><a href="contatti.html" class="active">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero contatti">
+        <h1>Contattaci</h1>
+        <p>Hai domande o vuoi unirti al nostro gruppo? Scrivici!</p>
+    </section>
+
+    <section class="contatti-container">
+        <div class="form-container">
+            <h2>Scrivici</h2>
+            <form id="contatti-form">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" required>
+                <small class="errore" id="errore-nome"></small>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <small class="errore" id="errore-email"></small>
+
+                <label for="messaggio">Messaggio</label>
+                <textarea id="messaggio" name="messaggio" required></textarea>
+                <small class="errore" id="errore-messaggio"></small>
+
+                <button type="submit">Invia</button>
+            </form>
+            <p id="conferma-messaggio" class="hidden">Grazie per il tuo messaggio! Ti risponderemo al più presto.</p>
+        </div>
+
+        <div class="info-container">
+            <h2>Dove Trovarci</h2>
+            <div id="mappa"></div>
+            <h2>Contatti</h2>
+            <p><strong>Email:</strong> info@gruppomicologico.it</p>
+            <p><strong>Telefono:</strong> +39 123 456 7890</p>
+            <div class="social">
+                <a href="#"><img src="img/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="img/instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="img/twitter.png" alt="Twitter"></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Gruppo Micologico - Tutti i diritti riservati</p>
+    </footer>
+</body>
+</html>

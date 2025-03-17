@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esplora i Funghi - Gruppo Micologico</title>
+    <link rel="stylesheet" href="funghistyle.css">
+    <script defer src="funghiscript.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="chi-siamo.html">Chi Siamo</a></li>
+                <li><a href="funghi.html" class="active">Esplora i Funghi</a></li>
+                <li><a href="eventi.html">Eventi e Uscite</a></li>
+                <li><a href="galleria.html">Galleria</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero funghi">
+        <h1>Esplora i Funghi</h1>
+        <p>Scopri le specie di funghi nel nostro database.</p>
+    </section>
+
+    <section class="filtro">
+        <h2>Filtra per Tipo</h2>
+        <button onclick="filtraFunghi('tutti')">Tutti</button>
+        <button onclick="filtraFunghi('commestibile')">Commestibili</button>
+        <button onclick="filtraFunghi('tossico')">Tossici</button>
+        <button onclick="filtraFunghi('raro')">Rari</button>
+    </section>
+
+    <section class="galleria-funghi">
+        <div class="fungo" data-tipo="commestibile" onclick="apriPopup('porcino')">
+            <img src="img/porcino.jpg" alt="Porcino">
+            <p>Porcino</p>
+        </div>
+        <div class="fungo" data-tipo="tossico" onclick="apriPopup('amanita')">
+            <img src="img/amanita.jpg" alt="Amanita Muscaria">
+            <p>Amanita Muscaria</p>
+        </div>
+        <div class="fungo" data-tipo="raro" onclick="apriPopup('ovolo')">
+            <img src="img/ovolo.jpg" alt="Ovolo Buono">
+            <p>Ovolo Buono</p>
+        </div>
+    </section>
+
+    <div id="popup-fungo" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="chiudiPopup()">&times;</span>
+            <img id="popup-img" src="" alt="">
+            <h3 id="popup-title"></h3>
+            <p id="popup-scientifico"></p>
+            <p id="popup-descrizione"></p>
+            <p id="popup-habitat"></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Gruppo Micologico - Tutti i diritti riservati</p>
+    </footer>
+</body>
+</html>
