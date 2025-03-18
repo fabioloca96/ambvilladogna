@@ -1,4 +1,4 @@
-/* Stile generale */
+/* RESET E BASE */
 * {
     margin: 0;
     padding: 0;
@@ -9,50 +9,42 @@ body, h1, h2, h3, p {
     padding: 0;
     font-family: Arial, sans-serif;
 }
-
 body {
     background-color: #f4f4f4;
+    overflow-x: hidden;
+}
+img {
+    max-width: 100%;
+    height: auto;
 }
 
-/* Navbar */
+/* HEADER */
 header {
-    background: linear-gradient(135deg, #f9f9f9, #f4eb9e); /* 🌿 Effetto muschio */
-    color: white;
-    padding: 10px 20px;
+    background: linear-gradient(135deg, #f9f9f9, #f4eb9e);
     text-align: center;
-    position: relative;
-    
+    padding: 10px 20px;
+}
+header img {
+    width: clamp(200px, 40vw, 400px);
 }
 
+/* NAVBAR */
 .navbar {
     font-family: 'Poppins', sans-serif;
-    background-color: #614413; /* Colore scuro per contrasto */
+    background-color: #614413;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     padding: 15px 0;
 }
-
-.navbar ul {
-    list-style: none;
-    display: flex;
-    padding: 0;
-}
-
-.navbar li {
-    margin: 0 15px;
-}
-
 .navbar a {
     text-decoration: none;
     color: white;
-    font-size: 18px;
+    font-size: clamp(1rem, 2vw, 1.2rem);
     font-weight: 600;
-    padding: 10px;
-    transition: color 0.3s ease-in-out;
     position: relative;
+    padding: 10px;
 }
-
-/* Effetto sottolineatura animata */
 .navbar a::after {
     content: '';
     position: absolute;
@@ -61,21 +53,17 @@ header {
     width: 0;
     height: 3px;
     background-color: #f39c12;
-    transition: all 0.3s ease-in-out;
+    transition: width 0.3s ease-in-out;
     transform: translateX(-50%);
 }
-
+.navbar a:hover::after {
+    width: 100%;
+}
 .navbar a:hover {
     color: #f39c12;
 }
 
-/* Espansione della sottolineatura */
-.navbar a:hover::after {
-    width: 100%;
-}
-
-
-/* Hero Section */
+/* HERO SECTION */
 .hero {
     height: 100vh;
     display: flex;
@@ -85,475 +73,165 @@ header {
     position: relative;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Effetto Parallax */
+    background-attachment: fixed;
     color: white;
     padding: 20px;
-    background-repeat: no-repeat;
 }
 .hero::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0; left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.1); /* 🔥 Oscurisce leggermente lo sfondo */
+    background: rgba(0,0,0,0.4); /* Overlay più scuro per la leggibilità */
     z-index: 1;
 }
-.hero-1 {
-    background-image: url('images/hero2.jpg');
-}
-.hero-2 {
-    background-image: url('images/hero1.jpg');
-}
-.hero-3 {
-    background-image: url('images/hero0.jpg');
-}
-
-.hero__image {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.5;
-    z-index: 0;
-}
+.hero-1 { background-image: url('images/hero2.jpg'); }
+.hero-2 { background-image: url('images/hero1.jpg'); }
+.hero-3 { background-image: url('images/hero0.jpg'); }
 
 .hero__content {
     position: relative;
     z-index: 2;
-    
-    transform: translateY(40px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
-.hero__title, .hero__subtitle {
-    position: relative;
-    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
-}
-
-
 .hero__title {
-    font-size: 4.0rem; /* Titolo più grande */
+    font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 700;
-    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.8);
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.8);
     letter-spacing: 1.5px;
 }
-
 .hero__subtitle {
-    font-size: 1.5rem;
-    font-weight: 400;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
     letter-spacing: 1px;
-    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 1px 10px rgba(0,0,0,0.7);
+    margin-top: 20px;
 }
-/* Pulsante con effetto hover */
 .cta-btn {
     display: inline-block;
     background-color: #FFA500;
     color: white;
-    font-size: 1.2rem; /* 🔥 Più grande */
-    padding: 15px 30px; /* 🔥 Maggiore spazio */
-    text-decoration: none;
-    border-radius: 8px; /* 🔥 Angoli più morbidi */
+    font-size: 1.1rem;
+    padding: 12px 26px;
+    border-radius: 8px;
     font-weight: bold;
+    margin-top: 20px;
     transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
-
-/* 🔥 Miglioriamo l'hover: ingrandimento + effetto glow */
 .cta-btn:hover {
     background-color: #FF8C00;
-    transform: scale(1.15); /* 🔥 Ingrandisce di più */
-    box-shadow: 0px 0px 15px rgba(255, 140, 0, 0.6); /* 🔥 Effetto Glow */
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.6);
 }
-
-
-@keyframes fade-in-up {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-/* Stile specifico per ogni hero */
-.hero-1 { background-color: #2C3E50; } /* Natura */
-.hero-2 { background-color: #1A5276; } /* Microscopia */
-.hero-3 { background-color: #4A235A; } /* Community */
 
 /* EVENTI */
 .eventi {
-    background-image: linear-gradient(180deg, #f9f9f9, #f4eb9e);; /* 🌿 Usa l'immagine di muschio */
-    background-size: cover; /* 🔥 Rende l'immagine adattabile */
-    background-position: center; /* 🔥 Centra l'immagine */
-    background-repeat: no-repeat; /* 🔥 Evita ripetizioni */
+    background: linear-gradient(180deg, #f9f9f9, #f4eb9e);
     padding: 60px 20px;
-    color: white; /* 🔥 Assicura che il testo sia leggibile */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); /* 🔥 Migliora il contrasto del testo */
+    color: #333;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.2);
 }
-
-
-
 .eventi h2 {
-    text-align: center; /* 🔥 Centra il titolo */
-    font-size: 2.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    font-weight: bold;
+    text-align: center;
+    font-size: 2.6rem;
     margin-bottom: 30px;
-    width: 100%; /* 🔥 Assicura che occupi tutto lo spazio */
-    display: flex;
-    justify-content: center;
 }
-
-/* 🔥 Container con scroll fluido */
 .eventi-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 30px;
     overflow-x: auto;
-    padding: 20px;
+    padding: 20px 0;
     scroll-behavior: smooth;
-    max-width: 90%;
-    margin: auto;
 }
-
-
-/* 🔥 Evento con card arrotondate e più "morbide" */
 .evento {
     background: white;
     color: black;
+    border-radius: 20px;
+    width: 340px;
+    min-height: 320px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     padding: 20px;
-    border-radius: 20px; /* 🔥 Angoli più arrotondati */
-    width: 340px; /* 🔥 Più grande e leggibile */
-    min-height: 280px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
-    position: relative;
-    text-align: left;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    flex-shrink: 0;
 }
-.evento h3 {
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: #000000;
-    margin-bottom: 2px;
-}
-/* 🔥 Data evento */
-.evento p.data {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #4C7031;
-}
-.evento p.descrizione {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1;
-}
-
-/* 🔥 Effetto hover per sollevare leggermente le card */
 .evento:hover {
-    transform: translateY(-8px) scale(1.05);
-    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.3);
-}
-/* 🔥 Bottoni di navigazione */
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 20px;
-    border-radius: 50%;
-    transition: background 0.3s ease;
-}
-
-.carousel-btn:hover {
-    background: rgba(0, 0, 0, 0.8);
-}
-
-#prev-btn {
-    left: -40px;
-}
-
-#next-btn {
-    right: -40px;
+    transform: scale(1.05);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.3);
 }
 .evento img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
     border-radius: 15px;
     margin-bottom: 10px;
+    height: 180px;
+    object-fit: cover;
 }
-.btn {
-    display: inline-block;
-    background-color: #4C7031;
-    color: white;
-    padding: 10px 15px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 10px;
+.evento h3 {
+    color: #000;
+    margin-bottom: 5px;
+}
+.evento p.data {
+    color: #4C7031;
     font-weight: bold;
-    transition: 0.3s;
 }
-
-
-/* 🔥 Effetto hover pulsante */
-.btn:hover {
-    background-color: #FF8C00;
-    transform: scale(1.15);
-}
-/* 🔥 Bottone "Vedi tutti gli eventi" */
 .vedi-tutti {
-    display: block; /* 🔥 Occupa tutta la larghezza disponibile */
-    margin: 40px auto; /* 🔥 Lo centra orizzontalmente */
-    text-align: center; /* 🔥 Assicura che il testo sia centrato */
-    width: fit-content; /* 🔥 Lo adatta al contenuto */
-    font-size: 1.3rem;
-    padding: 15px 30px;
-    border-radius: 8px;
-    justify-content: center;
-}
-
-/* 🔥 Effetto card con leggero sollevamento */
-
-
-/* 🔥 Pulsante migliorato */
-.btn {
-    display: inline-block;
+    display: block;
+    margin: 40px auto 0;
     background-color: #FFA500;
     color: white;
-    padding: 12px 18px;
-    text-decoration: none;
-    border-radius: 50px; /* 🔥 Effetto pillola */
-    font-weight: bold;
-    transition: background 0.3s, transform 0.3s;
-    margin-top: 15px;
+    font-size: 1.2rem;
+    padding: 12px 24px;
+    border-radius: 50px;
+    width: fit-content;
+    text-align: center;
+    transition: transform 0.3s, background 0.3s;
 }
-
-/* 🔥 Hover più evidente */
-.btn:hover {
+.vedi-tutti:hover {
     background-color: #FF8C00;
-    transform: scale(1.15);
+    transform: scale(1.1);
 }
-/* FADE-IN ANIMATION */
-.fade-in {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-/* Quando l'elemento entra nella viewport */
-.fade-in.visible {
-    opacity: 1 !important;
-    transform: translateY(0) scale(1);
-}
-
 
 /* FOOTER */
 footer {
     background-color: #4C7031;
     color: white;
     text-align: center;
-    padding: 15px;
-    width: 100%;
+    padding: 20px;
 }
-
 .footer-content {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: auto;
+    flex-direction: column;
+    gap: 10px;
 }
-
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
 .social-icons img {
     width: 30px;
-    margin: 0 10px;
 }
-/* 🔥 Miglioriamo il layout per schermi piccoli */
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
-    .hero__title {
-        font-size: 1.7rem!important; /* 🔥 Più piccolo per schermi piccoli */
-        line-height: 0.8;
-    }
-
-    .hero__subtitle {
-        font-size: 0.9rem!important; /* 🔥 Adattato per non essere invadente */
-        line-height: 1.3;
-    }
-
-    .cta-btn {
-        font-size: 0.7rem; /* 🔥 Ridotto per mobile */
-        padding: 10px 20px; /* 🔥 Più compatto */
-    }
-  
-        header img {
-            width: 420px; /* 🔥 Riduce la larghezza */
-            height: auto;
-        }
-    
-    /* 🔹 Rendo gli Hero più leggibili */
-    
-        .hero {
-            height: 80vh; /* 🔥 Evita che occupino tutto lo schermo */
-            padding: 20px;
-            background-attachment: scroll !important; /* 🔥 Su mobile lo facciamo scorrere */
-        }
-    
-            .hero__title {
-                font-size: 4rem; /* 🔥 Più grande */
-                font-weight: 800; /* 🔥 Più marcato */
-                text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.8); /* 🔥 Maggiore contrasto */
-                letter-spacing: 2px;
-                line-height: 1.2; /* 🔥 Evita che il testo sia troppo compatto */
-            }
-        
-            .hero__subtitle {
-                font-size: 2rem; /* 🔥 Più leggibile */
-                font-weight: 500;
-                letter-spacing: 1.5px;
-                text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
-                margin-top: 20px; /* 🔥 Distanziato dal titolo */
-            }
-            .hero::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.4); /* 🔥 Oscura leggermente lo sfondo */
-                z-index: 1;
-            }
-            
-            .hero__content {
-                position: relative;
-                z-index: 2; /* 🔥 Porta il testo sopra l'overlay */
-            }
-            
-
-    /* 🔹 Sezione Eventi: facciamo uno slider orizzontale */
-    .eventi {
-        width: 100vw; /* 🔥 Occupa tutta la larghezza dello schermo */
-        padding-left: 0;
-        padding-right: 0;
-        margin-left: 0;
-        margin-right: 0;
-        border-radius: 0; /* 🔥 Rimuove eventuali bordi arrotondati */
-        
-    }
-
-    .eventi-container {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        padding: 10px;
-        width: 100%;
-    }
-
-    .evento {
-        flex: 0 0 85%; /* 🔥 Ogni evento occupa l’85% dello schermo */
-        scroll-snap-align: center;
-        width: auto;
-    }
- 
-    .hero__image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* 🔥 Adatta senza deformare */
-    }
-
-    /* 🔹 Navbar: trasformiamola in un menu a scomparsa */
-
-    
-    /* 🔹 Stile per il bottone menu hamburger */
-    /* 🔥 Miglioriamo il menu hamburger */
-.menu-toggle {
-    position: fixed;
-    top: 15px;
-    right: 20px;
-    font-size: 2rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: white;
-    z-index: 1001;
-    transition: transform 0.3s ease;
-}
-
-.menu-toggle:hover {
-    transform: scale(1.1);
-}
-
-/* 🔥 Navbar a scomparsa */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: -100%; /* Nascondiamo il menu fuori dallo schermo */
-    width: 70%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: left 0.4s ease-in-out;
-    z-index: 1000;
-}
-
-/* 🔥 Quando il menu è attivo */
-.navbar.active {
-    left: 0;
-}
-
-.navbar a {
-    color: white;
-    font-size: 1.5rem;
-    padding: 15px;
-    text-decoration: none;
-    display: block;
-    transition: color 0.3s ease;
-}
-
-.navbar a:hover {
-    color: #FFA500;
-}
-
-}
-@media (max-width: 1024px) and (max-height: 600px) {
     .hero {
-        background-size: contain; /* 🔥 Mostra l'immagine intera su schermi larghi e bassi */
+        height: 80vh;
+        background-attachment: scroll;
     }
-
-
-
-    .hero__image {
-        width: 100%;
-        height: 100%;
-        object-fit: contain; /* 🔥 Mostra l'immagine intera senza tagliarla */
+    .hero__title {
+        font-size: 2.2rem;
     }
-}
-/* Medium Layout: 1280px. */
-@media only screen and (min-width: 992px) and (max-width: 1200px) { 
-  
-    
-}
-/* Tablet Layout: 768px. */
-@media only screen and (min-width: 768px) and (max-width: 991px) { 
- 
-    
-}
-/* Mobile Layout: 320px. */
-@media only screen and (max-width: 767px) { 
- 
-    
-}
-/* Wide Mobile Layout: 480px. */
-@media only screen and (min-width: 480px) and (max-width: 767px) { 
-
+    .hero__subtitle {
+        font-size: 1rem;
+        margin-top: 15px;
+    }
+    .cta-btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+    .eventi-container {
+        gap: 15px;
+        padding: 10px;
+    }
+    .evento {
+        width: 80vw;
+    }
 }
