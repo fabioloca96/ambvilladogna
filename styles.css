@@ -16,17 +16,17 @@ body {
 
 /* Navbar */
 header {
-    background: linear-gradient(135deg, #141d0e, #6A9C45); /* 🌿 Effetto muschio */
+    background: linear-gradient(135deg, #f9f9f9, #f4eb9e); /* 🌿 Effetto muschio */
     color: white;
     padding: 10px 20px;
     text-align: center;
     position: relative;
-    border-bottom: 5px solid #304a1f; /* 🌿 Bordo più spesso e naturale */
+    
 }
 
 .navbar {
     font-family: 'Poppins', sans-serif;
-    background-color: #32442d; /* Colore scuro per contrasto */
+    background-color: #614413; /* Colore scuro per contrasto */
     display: flex;
     justify-content: center;
     padding: 15px 0;
@@ -185,7 +185,7 @@ header {
 
 /* EVENTI */
 .eventi {
-    background-image: linear-gradient(180deg, #092e27, #085c28);; /* 🌿 Usa l'immagine di muschio */
+    background-image: linear-gradient(180deg, #f9f9f9, #f4eb9e);; /* 🌿 Usa l'immagine di muschio */
     background-size: cover; /* 🔥 Rende l'immagine adattabile */
     background-position: center; /* 🔥 Centra l'immagine */
     background-repeat: no-repeat; /* 🔥 Evita ripetizioni */
@@ -537,4 +537,23 @@ footer {
         height: 100%;
         object-fit: contain; /* 🔥 Mostra l'immagine intera senza tagliarla */
     }
+}
+/* Medium Layout: 1280px. */
+@media only screen and (min-width: 992px) and (max-width: 1200px) { 
+  
+    
+}
+/* Tablet Layout: 768px. */
+@media only screen and (min-width: 768px) and (max-width: 991px) { 
+ 
+    
+}
+/* Mobile Layout: 320px. */
+@media only screen and (max-width: 767px) { 
+ 
+    
+}
+/* Wide Mobile Layout: 480px. */
+@media only screen and (min-width: 480px) and (max-width: 767px) { 
+
 }
