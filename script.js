@@ -37,19 +37,7 @@ document.addEventListener("scroll", function () {
         }
     });
 });
-document.addEventListener("DOMContentLoaded", function () {
-    let container = document.querySelector(".eventi-container");
 
-    if (container) {
-        setInterval(() => {
-            if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 1) {
-                container.scrollTo({ left: 0, behavior: "smooth" });
-            } else {
-                container.scrollBy({ left: 340, behavior: "smooth" });
-            }
-        }, 3500); // Cambio evento ogni 3.5 secondi
-    }
-});
 document.addEventListener("DOMContentLoaded", function () {
     let container = document.querySelector(".eventi-container");
 
@@ -73,17 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(error => console.error("Errore nel caricamento degli eventi:", error));
 });
-document.addEventListener("DOMContentLoaded", function () {
-    const menuToggle = document.createElement("button");
-    menuToggle.classList.add("menu-toggle");
-    menuToggle.innerHTML = "☰"; // Icona hamburger
 
-    document.body.appendChild(menuToggle);
-
-    menuToggle.addEventListener("click", function () {
-        document.querySelector(".navbar").classList.toggle("active");
-    });
-});
 document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.querySelector('.menu-toggle');
     const navbar = document.querySelector('.navbar');

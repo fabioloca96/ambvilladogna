@@ -63,6 +63,10 @@ header img {
 .navbar a:hover {
     color: #f39c12;
 }
+/* Nascondi l’hamburger di default */
+.menu-toggle {
+    display: none;
+}
 
 /* HERO SECTION */
 .hero {
@@ -215,7 +219,7 @@ footer {
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
-    }
+    
 
     .navbar {
         position: fixed;
@@ -266,4 +270,5 @@ footer {
     .evento {
         width: 80vw;
     }
-}
+    
+}}
