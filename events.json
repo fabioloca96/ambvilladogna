@@ -17,14 +17,14 @@
         "titolo": "Workshop sulla Microscopia",
         "data": "10 Giugno 2025",
         "descrizione": "Un laboratorio pratico per imparare ad analizzare i funghi al microscopio.",
-        "immagine": "images/conferenza.jpg",
+        "immagine": "images/conferenza.JPG",
         "link": "#"
     },
     {
         "titolo": "Mostra del fungo",
         "data": "24 Agosto 2025",
         "descrizione": "Un laboratorio pratico per imparare ad analizzare i funghi al microscopio.",
-        "immagine": "images/conferenza.jpg",
+        "immagine": "images/conferenza.JPG",
         "link": "#"
     }
 ]
