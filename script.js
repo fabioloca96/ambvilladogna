@@ -61,19 +61,37 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(error => console.error("Errore nel caricamento degli eventi:", error));
 });
-
 document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.querySelector('.menu-toggle');
     const navbar = document.querySelector('.navbar');
 
-    menuToggle.addEventListener('click', function () {
+    menuToggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        menuToggle.classList.toggle('active');
         navbar.classList.toggle('active');
     });
 
-    // Chiude il menu quando clicchi un link
+    // Chiudi la navbar quando clicchi all'esterno
+    document.addEventListener('click', function (e) {
+        if (!navbar.contains(e.target) && !menuToggle.contains(e.target)) {
+            menuToggle.classList.remove('active');
+            navbar.classList.remove('active');
+        }
+    });
+
+    // Chiudi la navbar quando clicchi un link
     navbar.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
             navbar.classList.remove('active');
         });
+    });
+
+    // Chiudi con ESC
+    document.addEventListener('keydown', function (e) {
+        if (e.key === "Escape") {
+            menuToggle.classList.remove('active');
+            navbar.classList.remove('active');
+        }
     });
 });

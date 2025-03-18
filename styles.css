@@ -64,9 +64,7 @@ header img {
     color: #f39c12;
 }
 /* Nascondi l’hamburger di default */
-.menu-toggle {
-    display: none;
-}
+
 
 /* HERO SECTION */
 .hero {
@@ -214,61 +212,100 @@ footer {
 .social-icons img {
     width: 30px;
 }
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 30px;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 2001;
+    background: none;
+    border: none;
+}
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: white;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+header img {
+    max-width: 300px;
+    height: auto;
+    transition: all 0.3s ease;
+}
+header img.logo {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
 
-/* RESPONSIVE */
+
 @media (max-width: 768px) {
+    header img.logo {
+        max-width: 500px;
+        margin: 10px auto;
+    }
     .menu-toggle {
-        display: block;
-    
-
+        display: flex;
+    }
+    .hero {
+        background-attachment: scroll !important;
+        background-size: cover; /* oppure 'contain' se vuoi vederle tutte intere, ma solitamente 'cover' è più elegante */
+        background-position: center;
+    }
     .navbar {
         position: fixed;
         top: 0;
         left: -100%;
-        width: 70%;
+        width: 75%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.95);
+        background: rgba(0, 0, 0, 0.95);
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        z-index: 1500;
+        transition: left 0.3s ease;
+        z-index: 2000;
     }
 
     .navbar.active {
         left: 0;
     }
-
-    .navbar a {
-        font-size: 1.5rem;
-        margin: 20px 0;
-        color: white;
+    .navbar ul {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        list-style: none;
     }
-
+    .navbar a {
+        color: white;
+        font-size: 1.6rem;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
     .navbar a:hover {
         color: #FFA500;
     }
-
+}
+@media (max-width: 1024px) and (orientation: landscape) {
     .hero {
-        height: 80vh;
-        background-attachment: scroll;
+        background-size: contain; /* così le immagini non vengono tagliate */
+        background-position: center;
     }
-    .hero__title {
-        font-size: 2.2rem;
-    }
-    .hero__subtitle {
-        font-size: 1rem;
-        margin-top: 15px;
-    }
-    .cta-btn {
-        font-size: 1rem;
-        padding: 10px 20px;
-    }
-    .eventi-container {
-        gap: 15px;
-        padding: 10px;
-    }
-    .evento {
-        width: 80vw;
-    }
-    
-}}
+}
