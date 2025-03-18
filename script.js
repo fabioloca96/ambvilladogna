@@ -85,30 +85,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 document.addEventListener("DOMContentLoaded", function () {
-    const menuToggle = document.createElement("button");
-    menuToggle.classList.add("menu-toggle");
-    menuToggle.innerHTML = "☰";
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navbar = document.querySelector('.navbar');
 
-    document.body.appendChild(menuToggle);
-
-    const navbar = document.querySelector(".navbar");
-
-    menuToggle.addEventListener("click", function () {
-        navbar.classList.toggle("active");
+    menuToggle.addEventListener('click', function () {
+        navbar.classList.toggle('active');
     });
-});
 
-document.addEventListener("DOMContentLoaded", function () {
-    const cards = document.querySelectorAll(".card");
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
-            }
+    // Chiude il menu quando clicchi un link
+    navbar.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navbar.classList.remove('active');
         });
-    }, { threshold: 0.2 });
-
-    cards.forEach(card => observer.observe(card));
+    });
 });
