@@ -3,21 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contatti - Gruppo Micologico</title>
+    <title>Chi Siamo - Gruppo Micologico</title>
     <link rel="stylesheet" href="stylecontatti.css">
+    
     <script defer src="scriptcontatti.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=INSERISCI_LA_TUA_API_KEY&callback=initMap" async defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
+
+       <!-- Navbar -->
+       <header>
+        <img src="images/logo.png" alt="Logo Gruppo Micologico" class="logo">
+        <button class="menu-toggle" aria-label="Apri menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="navbar">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="chi-siamo.html">Chi Siamo</a></li>
-                <li><a href="funghi.html">Esplora i Funghi</a></li>
-                <li><a href="eventi.html">Eventi e Uscite</a></li>
-                <li><a href="galleria.html">Galleria</a></li>
-                <li><a href="contatti.html" class="active">Contatti</a></li>
+                <li><a href="index.html"> Home</a></li>
+        <li><a href="chi_siamo.html">Chi siamo</a></li>
+        <li><a href="funghi.html"> Esplora i Funghi</a></li>
+        <li><a href="eventi.html"> Eventi</a></li>
+        <li><a href="galleria.html"> Galleria</a></li>
+        <li><a href="contatti.html"class="active"><img src="images/fungo_icon.png" alt="fungo"> Contatti</a></li>
             </ul>
         </nav>
     </header>
@@ -52,18 +61,28 @@
             <h2>Dove Trovarci</h2>
             <div id="mappa"></div>
             <h2>Contatti</h2>
-            <p><strong>Email:</strong> info@gruppomicologico.it</p>
+            <p><strong>Email:</strong> locatellifabio.doc@istitutovalleseriana.edu.it</p>
             <p><strong>Telefono:</strong> +39 123 456 7890</p>
             <div class="social">
-                <a href="#"><img src="img/facebook.png" alt="Facebook"></a>
-                <a href="#"><img src="img/instagram.png" alt="Instagram"></a>
-                <a href="#"><img src="img/twitter.png" alt="Twitter"></a>
-            </div>
+                <a href="#"><img src="images/facebook.svg" alt="Facebook"></a>
+                </div>
         </div>
+        
     </section>
+    <section class="newsletter-section fade-in">
+        <div class="newsletter-container">
+          <h2>Iscriviti alla nostra newsletter</h2>
+          <p>Rimani aggiornato su eventi, corsi e novità!</p>
+          <form action="https://assets.mailerlite.com/jsonp/1396623/forms/149330395780875484/subscribe" method="post" target="_blank">
+            <input type="email" name="fields[email]" placeholder="Inserisci la tua email" required>
+            <button type="submit" class="subscribe-btn">Iscriviti</button>
+          </form>
+        </div>
+      </section>
 
     <footer>
-        <p>© 2025 Gruppo Micologico - Tutti i diritti riservati</p>
+        <p>© 2025 A.M.B Villa d' Ogna - Tutti i diritti riservati</p>
     </footer>
+    <script defer src="script.js"></script>
 </body>
 </html>

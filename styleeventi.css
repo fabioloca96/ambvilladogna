@@ -7,31 +7,10 @@ body {
 }
 
 /* Navbar */
-nav ul {
-    display: flex;
-    list-style: none;
-    background: #6b4226;
-    padding: 10px;
-    justify-content: center;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav ul li a.active {
-    border-bottom: 2px solid #f4a261;
-}
 
 /* Hero Section */
 .hero.eventi {
-    background: url('img/eventi-hero.jpg') center/cover no-repeat;
+    background: url('images/heroeventi.webp') center/cover no-repeat;
     text-align: center;
     padding: 80px 20px;
     color: white;
@@ -104,12 +83,12 @@ nav ul li a.active {
 button {
     padding: 10px;
     border: none;
-    background: #6b4226;
+    background: #d4cdc9;
     color: white;
     cursor: pointer;
     font-weight: bold;
 }
 
 button:hover {
-    background: #8b5e3c;
+    background: #d5cbc4;
 }

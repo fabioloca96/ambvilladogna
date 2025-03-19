@@ -22,48 +22,78 @@ img {
 header {
     background: linear-gradient(135deg, #f9f9f9, #f4eb9e);
     text-align: center;
-    padding: 10px 20px;
+    
 }
 header img {
     width: clamp(200px, 40vw, 400px);
 }
 
-/* NAVBAR */
-
+/* Navbar - stile desktop elegante */
 .navbar {
-    font-family: 'Poppins', sans-serif;
-    background-color: #614413;
+   
+    background: linear-gradient(135deg, #b6aa5e, #88672e); /* sfumatura verde-marrone */
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    padding: 15px 0;
+    align-items: center;
+    padding: 18px 0;
+    position: relative;
+    z-index: 1000;
 }
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 30px; /* spazio tra i link */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    position: relative;
+}
+
 .navbar a {
     text-decoration: none;
-    color: white;
-    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: #ffffff;
+    font-size: 1.4rem;
     font-weight: 600;
     position: relative;
-    padding: 10px;
+    transition: color 0.3s ease-in-out;
+    padding-bottom: 4px;
 }
+
+/* Sottolineatura animata */
 .navbar a::after {
     content: '';
     position: absolute;
     left: 50%;
-    bottom: -5px;
+    bottom: 0;
     width: 0;
     height: 3px;
-    background-color: #f39c12;
-    transition: width 0.3s ease-in-out;
+    background-color: #f39c12; /* giallo/arancio */
+    transition: all 0.4s ease-in-out;
     transform: translateX(-50%);
 }
-.navbar a:hover::after {
-    width: 100%;
+.navbar a img {
+    width: 40px;   /* piccolino ma ben visibile */
+    height: 40px;
+    margin-right: 4px;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
 }
+
+.navbar a:hover img {
+    transform: rotate(10deg) scale(1.2); /* effetto simpatico al passaggio */
+}
+
 .navbar a:hover {
     color: #f39c12;
 }
-/* Nascondi l’hamburger di default */
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
 
 
 /* HERO SECTION */
@@ -89,13 +119,29 @@ header img {
     background: rgba(0,0,0,0.4); /* Overlay più scuro per la leggibilità */
     z-index: 1;
 }
-.hero-1 { background-image: url('images/hero2.jpg'); }
+.hero-1 { background-image: url('images/hero2.webp'); }
 .hero-2 { background-image: url('images/hero1.jpg'); }
-.hero-3 { background-image: url('images/hero0.jpg'); }
+.hero-3 { background-image: url('images/hero0.webp'); }
 
 .hero__content {
     position: relative;
     z-index: 2;
+}
+.hero__title, h1, h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+.hero__subtitle {
+    font-family: 'Lora', serif;
+    font-weight: 400;
+}
+.hero__title, .hero__subtitle {
+    will-change: transform;
+    transition: transform 0.2s ease-out;
+}
+
+.navbar a, .btn, .cta-btn {
+    font-family: 'Montserrat', sans-serif;
 }
 .hero__title {
     font-size: clamp(2.5rem, 6vw, 4rem);

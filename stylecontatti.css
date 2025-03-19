@@ -1,34 +1,98 @@
-/* Stili Generali */
-body {
-    font-family: Arial, sans-serif;
+/* RESET E BASE */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f8f5e1;
-    color: #333;
+    box-sizing: border-box;
 }
-
-/* Navbar */
-nav ul {
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+body {
+    background-color: #f4f4f4;
+    overflow-x: hidden;
+}
+header {
+    background: linear-gradient(135deg, #f9f9f9, #f4eb9e);
+    text-align: center;
+    
+}
+.navbar {
+   
+    background: linear-gradient(135deg, #b6aa5e, #88672e); /* sfumatura verde-marrone */
     display: flex;
-    list-style: none;
-    background: #6b4226;
-    padding: 10px;
     justify-content: center;
+    align-items: center;
+    padding: 18px 0;
+    position: relative;
+    z-index: 1000;
 }
 
-nav ul li {
-    margin: 0 15px;
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 30px; /* spazio tra i link */
+    margin: 0;
+    padding: 0;
 }
 
-nav ul li a {
-    color: white;
+.navbar li {
+    position: relative;
+}
+
+.navbar a {
     text-decoration: none;
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+    padding-bottom: 4px;
+}
+
+/* Sottolineatura animata */
+.navbar a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: #f39c12; /* giallo/arancio */
+    transition: all 0.4s ease-in-out;
+    transform: translateX(-50%);
+}
+.navbar a img {
+    width: 40px;   /* piccolino ma ben visibile */
+    height: 40px;
+    margin-right: 4px;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+.navbar a:hover img {
+    transform: rotate(10deg) scale(1.2); /* effetto simpatico al passaggio */
+}
+
+.navbar a:hover {
+    color: #f39c12;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+.nav-fungo {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+.navbar a.active {
+    color: #FFA500;
     font-weight: bold;
 }
 
-nav ul li a.active {
-    border-bottom: 2px solid #f4a261;
-}
 
 /* Hero Section */
 .hero.contatti {
@@ -110,4 +174,112 @@ button:hover {
 .social img {
     width: 30px;
     margin-right: 10px;
+}
+
+/* FOOTER */
+footer {
+    background-color: #4C7031;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.social-icons img {
+    width: 30px;
+}
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 30px;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 2001;
+    background: none;
+    border: none;
+}
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: white;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+header img {
+    max-width: 300px;
+    height: auto;
+    transition: all 0.3s ease;
+}
+header img.logo {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+
+@media (max-width: 768px) {
+    header img.logo {
+        max-width: 500px;
+        margin: 10px auto;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 75%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: left 0.3s ease;
+        z-index: 2000;
+    }
+
+    .navbar.active {
+        left: 0;
+    }
+    .navbar ul {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        list-style: none;
+    }
+    .navbar a {
+        color: white;
+        font-size: 1.6rem;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    .navbar a:hover {
+        color: #FFA500;
+    }
 }

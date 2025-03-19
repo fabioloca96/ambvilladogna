@@ -13,27 +13,30 @@
 
        <!-- Navbar -->
        <header>
-        <div class="logo-container">
-            <img src="images/logo.png" alt="Logo Gruppo Micologico">
-            <button class="menu-toggle" aria-label="Apri menu">
-                <div></div>
-            </button>
-        <nav>
-            <ul class="navbar">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="chi-siamo.html" class="active">Chi Siamo</a></li>
-                <li><a href="funghi.html">Funghi locali</a></li>
-                <li><a href="eventi.html">Eventi e Uscite</a></li>
-                <li><a href="galleria.html">Galleria</a></li>
-                <li><a href="contatti.html">Contatti</a></li>
+        <img src="images/logo.png" alt="Logo Gruppo Micologico" class="logo">
+        <button class="menu-toggle" aria-label="Apri menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html"> Home</a></li>
+    <li><a href="chi_siamo.html"class="active"><img src="images/fungo_icon.png" alt="fungo" class="nav-fungo">Chi siamo</a></li>
+    <li><a href="funghi.html"> Esplora i Funghi</a></li>
+    <li><a href="eventi.html">Eventi</a></li>
+    <li><a href="galleria.html"> Galleria</a></li>
+    <li><a href="contatti.html"> Contatti</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero chi-siamo-hero">
-        <h1 class="hero__title fade-in">Chi Siamo</h1>
-        <p class="hero__subtitle fade-in">Passione, studio e conservazione della micologia</p>
+    <section class="hero-chi">
+        <div class="hero__content">
+            <h1 class="hero__title">Chi siamo</h1>
+            <p class="hero__subtitle">Dal 1976, passione e ricerca micologica</p>
+        </div>
     </section>
 
     <!-- Storia e Missione -->
@@ -70,7 +73,7 @@
             </div>
             <div class="team-member">
                 <div class="card">
-                    <img src="images/membro2.jpg" alt="Pierino Bigoni">
+                    <img src="images/team1.jpg" alt="Pierino Bigoni">
                     <h3>Pierino Bigoni</h3>
                     <p>Micologo</p>
                 </div>
@@ -124,6 +127,6 @@
     <footer>
         <p>© 2025 Gruppo Micologico - Tutti i diritti riservati</p>
     </footer>
-
+    <script defer src="script.js"></script>
 </body>
 </html>

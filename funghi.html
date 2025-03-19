@@ -3,20 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esplora i Funghi - Gruppo Micologico</title>
+    <title>Funghi locali - Gruppo Micologico</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="funghistyle.css">
-    <script defer src="funghiscript.js"></script>
+        <script defer src="scriptfunghi.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
+
+       <!-- Navbar -->
+       <header>
+        <img src="images/logo.png" alt="Logo Gruppo Micologico" class="logo">
+        <button class="menu-toggle" aria-label="Apri menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="navbar">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="chi-siamo.html">Chi Siamo</a></li>
-                <li><a href="funghi.html" class="active">Esplora i Funghi</a></li>
-                <li><a href="eventi.html">Eventi e Uscite</a></li>
-                <li><a href="galleria.html">Galleria</a></li>
-                <li><a href="contatti.html">Contatti</a></li>
+                <li><a href="index.html"> Home</a></li>
+    <li><a href="chi_siamo.html"> Chi siamo</a></li>
+    <li><a href="funghi.html"class="active"><img src="images/fungo_icon.png" alt="fungo" class="nav-fungo">Esplora i Funghi</a></li>
+    <li><a href="eventi.html"> Eventi</a></li>
+    <li><a href="galleria.html"> Galleria</a></li>
+    <li><a href="contatti.html"> Contatti</a></li>
             </ul>
         </nav>
     </header>
@@ -63,5 +73,6 @@
     <footer>
         <p>© 2025 Gruppo Micologico - Tutti i diritti riservati</p>
     </footer>
+    <script defer src="script.js"></script>
 </body>
 </html>
