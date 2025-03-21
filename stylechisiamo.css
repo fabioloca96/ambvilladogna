@@ -10,7 +10,7 @@ body {
 
 /* Hero Section con Parallax */
 .hero-chi {
-    background: url('../images/herogruppo.webp') no-repeat center/cover;
+    background: url('images/herogruppo.webp') no-repeat center/cover;
     height: 100vh;
     display: flex;
     align-items: center;
