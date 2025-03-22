@@ -6,7 +6,7 @@
     <title>Funghi locali - Gruppo Micologico</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="funghistyle.css">
-        <script defer src="scriptfunghi.js"></script>
+        <script defer src="funghiscript.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -36,40 +36,32 @@
         <p>Scopri le specie di funghi nel nostro database.</p>
     </section>
 
-    <section class="filtro">
-        <h2>Filtra per Tipo</h2>
-        <button onclick="filtraFunghi('tutti')">Tutti</button>
-        <button onclick="filtraFunghi('commestibile')">Commestibili</button>
-        <button onclick="filtraFunghi('tossico')">Tossici</button>
-        <button onclick="filtraFunghi('raro')">Rari</button>
-    </section>
-
-    <section class="galleria-funghi">
-        <div class="fungo" data-tipo="commestibile" onclick="apriPopup('porcino')">
-            <img src="img/porcino.jpg" alt="Porcino">
-            <p>Porcino</p>
+    <section class="filtro-funghi">
+        <h2>Cerca i funghi</h2>
+        <div class="filtri">
+          <select id="genereFiltro">
+            <option value="">Tutti i generi</option>
+          </select>
+          <select id="commestibilitaFiltro">
+            <option value="">Tutte le commestibilità</option>
+            <option value="Commestibile">Commestibile</option>
+            <option value="Commestibile previa cottura">Commestibile previa cottura</option>
+            <option value="Commestibile con cautela">Commestibile con cautela</option>
+            <option value="Velenoso">Velenoso</option>
+          </select>
+          <select id="raritaFiltro">
+            <option value="">Tutte le rarità</option>
+            <option value="Comune">Comune</option>
+            <option value="Non molto comune">Non molto comune</option>
+            <option value="Raro">Raro</option>
+          </select>
+          <button onclick="applicaFiltri()">Filtra</button>
         </div>
-        <div class="fungo" data-tipo="tossico" onclick="apriPopup('amanita')">
-            <img src="img/amanita.jpg" alt="Amanita Muscaria">
-            <p>Amanita Muscaria</p>
-        </div>
-        <div class="fungo" data-tipo="raro" onclick="apriPopup('ovolo')">
-            <img src="img/ovolo.jpg" alt="Ovolo Buono">
-            <p>Ovolo Buono</p>
-        </div>
-    </section>
-
-    <div id="popup-fungo" class="popup">
-        <div class="popup-content">
-            <span class="close" onclick="chiudiPopup()">&times;</span>
-            <img id="popup-img" src="" alt="">
-            <h3 id="popup-title"></h3>
-            <p id="popup-scientifico"></p>
-            <p id="popup-descrizione"></p>
-            <p id="popup-habitat"></p>
-        </div>
-    </div>
-
+      </section>
+      
+      <section class="lista-funghi" id="listaFunghi">
+        <!-- Qui verranno inserite le card dei funghi -->
+      </section>
     <footer>
         <p>© 2025 Gruppo Micologico - Tutti i diritti riservati</p>
     </footer>

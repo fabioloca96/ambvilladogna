@@ -1,0 +1,113 @@
+[
+    {
+      "genere": "Amanita",
+      "specie": "muscaria",
+      "nome_comune": "Amanita muscaria",
+      "immagine": "images/funghi/amanita_muscaria.webp",
+      "descrizione": "Fungo iconico dal cappello rosso con puntini bianchi, tossico ma bellissimo da osservare.",
+      "habitat": "Boschi di conifere e latifoglie",
+      "commestibilita": "Velenoso",
+      "rarita": "Comune",
+      "ecologia": "Micorrizico"
+    },
+    {
+      "genere": "Boletus",
+      "specie": "edulis",
+      "nome_comune": "Porcino",
+      "immagine": "images/funghi/boletus_edulis.webp",
+      "descrizione": "Tra i più pregiati funghi commestibili, dal sapore delicato e carne soda.",
+      "habitat": "Boschi misti, sotto querce e castagni",
+      "commestibilita": "Commestibile",
+      "rarita": "Comune",
+      "ecologia": "Micorrizico"
+    },
+    {
+      "genere": "Cantharellus",
+      "specie": "cibarius",
+      "nome_comune": "Finferlo",
+      "immagine": "images/funghi/cantharellus_cibarius.webp",
+      "descrizione": "Giallo dorato, profumo fruttato, molto ricercato in cucina.",
+      "habitat": "Boschi di conifere e latifoglie",
+      "commestibilita": "Commestibile",
+      "rarita": "Comune",
+      "ecologia": "Micorrizico"
+    },
+    {
+      "genere": "Lactarius",
+      "specie": "deliciosus",
+      "nome_comune": "Lactarius delizioso",
+      "immagine": "images/funghi/lactarius_deliciosus.webp",
+      "descrizione": "Fungo dal colore arancio vivo, emette lattice arancione se inciso.",
+      "habitat": "Boschi di conifere",
+      "commestibilita": "Commestibile",
+      "rarita": "Non molto comune",
+      "ecologia": "Micorrizico"
+    },
+    {
+      "genere": "Clitocybe",
+      "specie": "nebularis",
+      "nome_comune": "Clitocybe nebularis",
+      "immagine": "images/funghi/clitocybe_nebularis.webp",
+      "descrizione": "Detto anche 'fungo della nebbia', grande e carnoso, da consumare con moderazione.",
+      "habitat": "Boschi umidi",
+      "commestibilita": "Commestibile con cautela",
+      "rarita": "Comune",
+      "ecologia": "Saprofita"
+    },
+    {
+      "genere": "Macrolepiota",
+      "specie": "procera",
+      "nome_comune": "Mazza di tamburo",
+      "immagine": "images/funghi/macrolepiota_procera.webp",
+      "descrizione": "Grande fungo con cappello squamoso, ottimo impanato e fritto.",
+      "habitat": "Prati e margini dei boschi",
+      "commestibilita": "Commestibile",
+      "rarita": "Comune",
+      "ecologia": "Saprofita"
+    },
+    {
+      "genere": "Chlorophyllum",
+      "specie": "molybdites",
+      "nome_comune": "Falso prataiolo tossico",
+      "immagine": "images/funghi/chlorophyllum_molybdites.webp",
+      "descrizione": "Spesso confuso con il prataiolo, in realtà velenoso e responsabile di intossicazioni.",
+      "habitat": "Prati e giardini",
+      "commestibilita": "Velenoso",
+      "rarita": "Comune",
+      "ecologia": "Saprofita"
+    },
+    {
+      "genere": "Gyromitra",
+      "specie": "esculenta",
+      "nome_comune": "Falsa spugnola",
+      "immagine": "images/funghi/gyromitra_esculenta.webp",
+      "descrizione": "Ha un aspetto cerebrale caratteristico, altamente tossico da crudo.",
+      "habitat": "Boschi montani",
+      "commestibilita": "Velenoso (mortale)",
+      "rarita": "Non molto comune",
+      "ecologia": "Saprofita"
+    },
+    {
+      "genere": "Morchella",
+      "specie": "esculenta",
+      "nome_comune": "Spugnola",
+      "immagine": "images/funghi/morchella_esculenta.webp",
+      "descrizione": "Pregiato fungo primaverile dalla forma a nido d'ape, eccellente previa cottura.",
+      "habitat": "Prati umidi e margini di bosco",
+      "commestibilita": "Commestibile previa cottura",
+      "rarita": "Non molto comune",
+      "ecologia": "Saprofita"
+    },
+    {
+      "genere": "Coprinus",
+      "specie": "comatus",
+      "nome_comune": "Coprinus comatus",
+      "immagine": "images/funghi/coprinus_comatus.webp",
+      "descrizione": "Detto 'fungo dell'inchiostro', giovane è ottimo in cucina.",
+      "habitat": "Prati, giardini e margini stradali",
+      "commestibilita": "Commestibile da giovane",
+      "rarita": "Comune",
+      "ecologia": "Saprofita"
+    }
+  ]
+  

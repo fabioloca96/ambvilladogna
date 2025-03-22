@@ -36,26 +36,25 @@
         <p>Hai domande o vuoi unirti al nostro gruppo? Scrivici!</p>
     </section>
 
-    <section class="contatti-container">
-        <div class="form-container">
-            <h2>Scrivici</h2>
-            <form id="contatti-form">
-                <label for="nome">Nome</label>
-                <input type="text" id="nome" name="nome" required>
-                <small class="errore" id="errore-nome"></small>
+  <section class="contattaci">
+    <h2>Contattaci</h2>
+    <form action="https://formspree.io/f/mjkywkez" method="POST" class="contact-form">
+      <label for="name">Nome</label>
+      <input type="text" id="name" name="name" placeholder="Il tuo nome" required>
+  
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="La tua email" required>
+  
+      <label for="message">Messaggio</label>
+      <textarea id="message" name="message" placeholder="Scrivi qui il tuo messaggio" rows="6" required></textarea>
+  
+      <button type="submit" class="btn">Invia messaggio</button>
+    </form>
+  </section>
+  
 
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-                <small class="errore" id="errore-email"></small>
-
-                <label for="messaggio">Messaggio</label>
-                <textarea id="messaggio" name="messaggio" required></textarea>
-                <small class="errore" id="errore-messaggio"></small>
-
-                <button type="submit">Invia</button>
-            </form>
             <p id="conferma-messaggio" class="hidden">Grazie per il tuo messaggio! Ti risponderemo al più presto.</p>
-        </div>
+        
 
         <div class="info-container">
             <h2>Dove Trovarci</h2>
