@@ -38,21 +38,34 @@
 
   <section class="contattaci">
     <h2>Contattaci</h2>
-   <!-- modify this form HTML and place wherever you want your form -->
+    <form action="https://formspree.io/f/mjkywkez" method="POST" class="contact-form">
+      <label for="name">Nome</label>
+      <input type="text" id="name" name="name" placeholder="Il tuo nome" required>
+  
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="La tua email" required>
+  
+      <label for="message">Messaggio</label>
+      <textarea id="message" name="message" placeholder="Scrivi qui il tuo messaggio" rows="6" required></textarea>
+  
+      <button type="submit" class="btn">Invia messaggio</button>
+    </form>
+    <!-- modify this form HTML and place wherever you want your form -->
 <form
-action="https://formspree.io/f/mjkywkez"
-method="POST"
+  action="https://formspree.io/f/mjkywkez"
+  method="POST"
+  class="contact-form"
 >
-<label>
-  Your email:
-  <input type="email" name="email">
-</label>
-<label>
-  Your message:
-  <textarea name="message"></textarea>
-</label>
-<!-- your other form fields go here -->
-<button type="submit">Send</button>
+  <label>
+    La tua Email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Il tuo messaggio:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit"class="btn"> Send</button>
 </form>
   </section>
   
