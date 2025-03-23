@@ -1,4 +1,3 @@
-/* RESET E BASE */
 * {
     margin: 0;
     padding: 0;
@@ -13,11 +12,22 @@ body {
     background-color: #f4f4f4;
     overflow-x: hidden;
 }
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* HEADER */
 header {
     background: linear-gradient(135deg, #f9f9f9, #f4eb9e);
     text-align: center;
     
 }
+header img {
+    width: clamp(200px, 40vw, 400px);
+}
+
+/* Navbar - stile desktop elegante */
 .navbar {
    
     background: linear-gradient(135deg, #b6aa5e, #88672e); /* sfumatura verde-marrone */
@@ -82,226 +92,159 @@ header {
 .navbar a:hover::after {
     width: 100%;
 }
-.nav-fungo {
-    width: 18px;
-    height: 18px;
-    margin-right: 8px;
-    vertical-align: middle;
-}
-.navbar a.active {
-    color: #FFA500;
-    font-weight: bold;
-}
-
-
-/* Hero Section */
-.hero.contatti {
-    background: url('images/contatti-hero.jpg') center/cover no-repeat;
-    height: 50vh;
+/* HERO CONTATTI */
+.hero-contatti-section {
+    background: linear-gradient(135deg, #f3f8ab, #fbff81);
+    height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    color: white;
+    justify-content: center;
+    text-align: center;
+    position: relative;
 }
-.hero.contatti::before {
-    content: '';
+.hero-contatti-section::before {
+    content: "";
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
 }
-/* Contenitore Contatti */
-.contatti-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 40px 20px;
-}
-
-.form-container, .info-container {
-    flex: 1 1 400px;
-    margin: 20px;
-}
-
-/* Form */
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-input, textarea {
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-textarea {
-    height: 100px;
-    resize: none;
-}
-
-button {
-    background: #6b4226;
+.hero-contatti-wrapper {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 20px;
     color: white;
-    padding: 10px;
-    margin-top: 10px;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #8c5a38;
-}
-
-/* Messaggi di Errore */
-.errore {
-    color: red;
-    font-size: 12px;
-}
-
-/* Messaggio di Conferma */
-.hidden {
-    display: none;
-    color: green;
-    font-weight: bold;
-}
-
-/* Mappa */
-#mappa {
-    width: 100%;
-    height: 350px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-/* Social */
-.social img {
-    width: 30px;
-    margin-right: 10px;
-}
-.newsletter-section {
-    padding: 40px 20px;
-    border-radius: 15px;
-    margin: 40px auto;
+    width: 90%;
     max-width: 500px;
-    text-align: center;
-    background: linear-gradient(135deg, #f4eb9e, #ffffff);
 }
-
-.newsletter-container h2 {
-    font-size: 2rem;
-    color: #4C7031;
+.hero-contatti-wrapper h1 {
+    font-size: 3rem;
     margin-bottom: 10px;
 }
-
-.newsletter-container p {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 25px;
+.hero-contatti-wrapper p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
 }
-
-.newsletter-container form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
-.newsletter-container input[type="email"] {
-    padding: 12px 20px;
-    width: 80%;
-    max-width: 400px;
-    border-radius: 30px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-}
-
-.subscribe-btn {
-    background-color: #4C7031;
-    color: white;
-    padding: 12px 30px;
+.form-contattaci input, .form-contattaci textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
     border: none;
-    border-radius: 30px;
-    font-size: 1.1rem;
+}
+.form-contattaci button {
+    background-color: #0E6655;
+    border: none;
+    padding: 12px 30px;
+    color: white;
+    border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.3s, background-color 0.3s;
 }
-
-.subscribe-btn:hover {
-    background-color: #FF8C00;
+.form-contattaci button:hover {
     transform: scale(1.1);
+    background-color: #084d3d;
 }
 
-/* FOOTER */
+/* Mappa e contatti */
+.mappa-e-contatti {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 60px 20px;
+    gap: 40px;
+    background: linear-gradient(180deg, #f4f4f4, #d5e5c9);
+    align-items: center;
+    justify-content: center;
+}
+.mappa-e-contatti .mappa {
+    flex: 1;
+    min-width: 300px;
+}
+.mappa-e-contatti iframe {
+    width: 100%;
+    height: 300px;
+    border-radius: 15px;
+}
+.contatti-info {
+    flex: 1;
+    min-width: 300px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+}
+.contatti-info h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+.contatti-info p {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* Newsletter */
+.newsletter-section {
+    background: linear-gradient(135deg, #f3f8ab, #fbff81);
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 60px 20px;
+}
+.newsletter-section h2 {
+    font-size: 2.5rem;
+}
+.newsletter-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+.newsletter-section form {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.newsletter-section input {
+    padding: 12px 20px;
+    border-radius: 50px;
+    border: none;
+    width: 300px;
+}
+.newsletter-section button {
+    padding: 12px 35px;
+    border-radius: 50px;
+    border: none;
+    background-color: #0E6655;
+    color: white;
+    cursor: pointer;
+}
+.newsletter-section button:hover {
+    transform: scale(1.1);
+    background-color: #084d3d;
+}
+
+/* Footer */
 footer {
     background-color: #4C7031;
     color: white;
     text-align: center;
     padding: 20px;
 }
-.footer-content {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-.social-icons img {
-    width: 30px;
-}
-.menu-toggle {
-    display: none;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 40px;
-    height: 30px;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-    z-index: 2001;
-    background: none;
-    border: none;
-}
-.menu-toggle span {
-    display: block;
-    width: 100%;
-    height: 4px;
-    background: white;
-    border-radius: 3px;
-    transition: 0.3s;
-}
-.menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
-}
-.menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-.menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
-}
-header img {
-    max-width: 300px;
-    height: auto;
-    transition: all 0.3s ease;
-}
-header img.logo {
-    width: 100%;
-    max-width: 450px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
 
 
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .sezione-contatti {
+        flex-direction: column;
+    }
+
+    .info-contatti, .form-contattaci {
+        width: 100%;
+    }
+
+    .mappa-section iframe {
+        height: 300px;
+    }
+}
 @media (max-width: 768px) {
     header img.logo {
         max-width: 500px;
@@ -310,7 +253,11 @@ header img.logo {
     .menu-toggle {
         display: flex;
     }
-    
+    .hero {
+        background-attachment: scroll !important;
+        background-size: cover; /* oppure 'contain' se vuoi vederle tutte intere, ma solitamente 'cover' è più elegante */
+        background-position: center;
+    }
     .navbar {
         position: fixed;
         top: 0;
@@ -342,5 +289,11 @@ header img.logo {
     }
     .navbar a:hover {
         color: #FFA500;
+    }
+}
+@media (max-width: 1024px) and (orientation: landscape) {
+    .hero {
+        background-size: contain; /* così le immagini non vengono tagliate */
+        background-position: center;
     }
 }

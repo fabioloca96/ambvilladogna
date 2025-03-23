@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi Siamo - Gruppo Micologico</title>
     <link rel="stylesheet" href="stylecontatti.css">
-    
     <script defer src="scriptcontatti.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
@@ -21,84 +20,58 @@
         </button>
         <nav class="navbar">
             <ul>
-                <li><a href="index.html"> Home</a></li>
-        <li><a href="chi_siamo.html">Chi siamo</a></li>
-        <li><a href="funghi.html"> Esplora i Funghi</a></li>
-        <li><a href="eventi.html"> Eventi</a></li>
-        <li><a href="galleria.html"> Galleria</a></li>
-        <li><a href="contatti.html"class="active"><img src="images/fungo_icon.png" alt="fungo"> Contatti</a></li>
+                
+     <li><a href="index.html">Home</a></li>
+     <li><a href="chi_siamo.html">Chi siamo</a></li>
+    <li><a href="funghi.html"> Esplora i Funghi</a></li>
+    <li><a href="eventi.html"> Eventi</a></li>
+    <li><a href="galleria.html"> Galleria</a></li>
+    <li><a href="contatti.html"class="active"><img src="images/fungo_icon.png" alt="fungo" class="nav-fungo">Contatti</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero contatti">
-        <h1>Contattaci</h1>
-        <p>Hai domande o vuoi unirti al nostro gruppo? Scrivici!</p>
-    </section>
+   <!-- HERO CONTATTI -->
+<section class="hero-contatti-section">
+  <div class="hero-contatti-wrapper">
+      <h1>Contattaci</h1>
+      <p>Per qualsiasi domanda, richiesta o curiosità, siamo a tua disposizione.</p>
+      <form action="https://formspree.io/f/mjkywkez" method="POST" class="form-contattaci">
+          <input type="email" name="email" placeholder="La tua email" required>
+          <textarea name="message" placeholder="Il tuo messaggio" required></textarea>
+          <button type="submit">Invia messaggio</button>
+      </form>
+  </div>
+</section>
 
-  <section class="contattaci">
-    <h2>Contattaci</h2>
-    <form action="https://formspree.io/f/mjkywkez" method="POST" class="contact-form">
-      <label for="name">Nome</label>
-      <input type="text" id="name" name="name" placeholder="Il tuo nome" required>
-  
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="La tua email" required>
-  
-      <label for="message">Messaggio</label>
-      <textarea id="message" name="message" placeholder="Scrivi qui il tuo messaggio" rows="6" required></textarea>
-  
-      <button type="submit" class="btn">Invia messaggio</button>
-    </form>
-    <!-- modify this form HTML and place wherever you want your form -->
-<form
-  action="https://formspree.io/f/mjkywkez"
-  method="POST"
-  class="contact-form"
->
-  <label>
-    La tua Email:
-    <input type="email" name="email">
-  </label>
-  <label>
-    Il tuo messaggio:
-    <textarea name="message"></textarea>
-  </label>
-  <!-- your other form fields go here -->
-  <button type="submit"class="btn"> Send</button>
-</form>
-  </section>
-  
+<!-- SEZIONE MAPPA + CONTATTI -->
+<section class="mappa-e-contatti">
+  <div class="mappa">
+      <iframe src="https://www.google.com/maps/embed?pb=..." loading="lazy"></iframe>
+  </div>
+  <div class="contatti-info">
+      <h2>I nostri contatti</h2>
+      <p>📍 Via Roma 1, Villa d’Ogna (BG)</p>
+      <p>📧 info@ambvilladogna.it</p>
+      <p>📞 +39 333 123 4567</p>
+      <p>🕒 Lun - Ven: 9:00 - 18:00</p>
+  </div>
+</section>
 
-            <p id="conferma-messaggio" class="hidden">Grazie per il tuo messaggio! Ti risponderemo al più presto.</p>
-        
+<!-- SEZIONE NEWSLETTER -->
+<section class="newsletter-section">
+  <h2>Iscriviti alla nostra newsletter</h2>
+  <p>Resta aggiornato su eventi, corsi ed escursioni micologiche</p>
+  <form action="https://formspree.io/f/yournewsletterformid" method="POST">
+      <input type="email" name="email" placeholder="Inserisci la tua email" required>
+      <button type="submit">Iscriviti</button>
+  </form>
+</section>
 
-        <div class="info-container">
-            <h2>Dove Trovarci</h2>
-            <div id="mappa"></div>
-            <h2>Contatti</h2>
-            <p><strong>Email:</strong> locatellifabio.doc@istitutovalleseriana.edu.it</p>
-            <p><strong>Telefono:</strong> +39 123 456 7890</p>
-            <div class="social">
-                <a href="#"><img src="images/facebook.svg" alt="Facebook"></a>
-                </div>
-        </div>
-        
-    </section>
-    <section class="newsletter-section fade-in">
-        <div class="newsletter-container">
-          <h2>Iscriviti alla nostra newsletter</h2>
-          <p>Rimani aggiornato su eventi, corsi e novità!</p>
-          <form action="https://assets.mailerlite.com/jsonp/1396623/forms/149330395780875484/subscribe" method="post" target="_blank">
-            <input type="email" name="fields[email]" placeholder="Inserisci la tua email" required>
-            <button type="submit" class="subscribe-btn">Iscriviti</button>
-          </form>
-        </div>
-      </section>
+<footer>
+  <p>© 2025 Gruppo Micologico - Tutti i diritti riservati</p>
+</footer>
 
-    <footer>
-        <p>© 2025 A.M.B Villa d' Ogna - Tutti i diritti riservati</p>
-    </footer>
     <script defer src="script.js"></script>
 </body>
 </html>
