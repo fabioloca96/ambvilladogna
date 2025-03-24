@@ -38,12 +38,3 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-// Inizializza la mappa Google Maps
-function initMap() {
-    const posizione = { lat: 45.888, lng: 9.888 }; // Inserisci le coordinate reali
-    const mappa = new google.maps.Map(document.getElementById("mappa"), {
-        zoom: 15,
-        center: posizione
-    });
-    new google.maps.Marker({ position: posizione, map: mappa });
-}
