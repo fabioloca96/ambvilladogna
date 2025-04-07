@@ -48,33 +48,23 @@
     <!-- Calendario Eventi -->
     <section class="calendario">
         <h2>Calendario Eventi</h2>
-        <div class="eventi-lista">
-            <div class="evento" onclick="apriEvento('uscita-bosco')">
-                <h3>Uscita nel Bosco</h3>
-                <p>📅 20 Aprile 2025</p>
-            </div>
-            <div class="evento" onclick="apriEvento('conferenza')">
-                <h3>Conferenza sulla Micologia</h3>
-                <p>📅 5 Maggio 2025</p>
-            </div>
-            <div class="evento" onclick="apriEvento('escursione-montagna')">
-                <h3>Escursione in Montagna</h3>
-                <p>📅 15 Giugno 2025</p>
-            </div>
+        
+        <div class="mese-nav">
+            <button id="prevMonth" onclick="cambiaMese(-1)">&#8249;</button>
+            <h3 id="meseCorrente"></h3>
+            <button id="nextMonth" onclick="cambiaMese(1)">&#8250;</button>
+        </div>
+        
+        <div id="calendar" class="calendar-grid"></div>
+    
+        <div id="eventoDettaglio" class="evento-dettaglio hidden">
+            <h3 id="titoloEvento"></h3>
+            <p id="dataEvento"></p>
+            <p id="descrizioneEvento"></p>
+            <p id="luogoEvento"></p>
+            <button onclick="chiudiDettaglio()">Chiudi</button>
         </div>
     </section>
-
-    <!-- Popup Evento -->
-    <div id="popup-evento" class="popup">
-        <div class="popup-content">
-            <span class="close" onclick="chiudiEvento()">&times;</span>
-            <h3 id="popup-title"></h3>
-            <p id="popup-data"></p>
-            <p id="popup-descrizione"></p>
-            <p id="popup-luogo"></p>
-            <button id="iscriviti-btn">Iscriviti</button>
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer>
