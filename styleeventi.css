@@ -100,33 +100,7 @@ p.subtitle {
   gap: 2rem;
   margin-top: 2rem;
 }
-.event-date {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: absolute;
-  top: -20px;
-  right: 20px;
-  background-color: rgb(12, 12, 12);
-  border-radius: 12px;
-  padding: 0.7rem;
-  min-width: 80px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
 
-.event-day {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--primary-dark); /* Cambia il colore del testo */
-  line-height: 1;
-}
-
-.event-month {
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--primary-dark); /* Cambia il colore del testo */
-}
 
 .event-card {
   background-color: white;
@@ -205,7 +179,7 @@ p.subtitle {
 
 .event-description {
   margin-bottom: 1.5rem;
-  color: #555;
+  color: #0ec91d;
   font-size: 0.95rem;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -311,7 +285,7 @@ p.subtitle {
 }
 
 .modal-content {
-  background-color: white;
+  background-color: rgb(90, 73, 174);
   border-radius: 16px;
   width: 100%;
   max-width: 800px;
@@ -381,7 +355,7 @@ p.subtitle {
 }
 
 .modal-info {
-  background-color: #f8f9fa;
+  background-color: #c311c3;
   border-radius: 12px;
   padding: 1.5rem;
   margin-bottom: 2rem;
