@@ -25,14 +25,6 @@ img {
     height: auto;
 }
 
-object {
-    width: 100%;
-    height: fit-content;
-    margin: 0;
-    padding: 0;
-    border: none;
-}
-
 /* HEADER */
 header {
     background: linear-gradient(135deg, #f9f9f9, #f4eb9e);
