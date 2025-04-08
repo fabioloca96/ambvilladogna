@@ -1,113 +1,276 @@
-// Countdown per il prossimo evento
-const prossimoEventoData = new Date("Apr 20, 2025 09:00:00").getTime();
 
-function aggiornaCountdown() {
-    let oraAttuale = new Date().getTime();
-    let distanza = prossimoEventoData - oraAttuale;
+        document.addEventListener('DOMContentLoaded', function() {
+            // Configuration
+            const CALENDAR_URL = 'https://calendar.google.com/calendar/ical/7c0d54c8fa499b1b991499814860f2094eee53babcee50f8e75ef45b4b64c223%40group.calendar.google.com/public/basic.ics';
+            
+            // State
+            let events = [];
+            let filteredEvents = [];
+            let currentFilter = 'all';
+            let currentMonth = 'all';
+            let searchQuery = '';
 
-    let giorni = Math.floor(distanza / (1000 * 60 * 60 * 24));
-    let ore = Math.floor((distanza % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    let minuti = Math.floor((distanza % (1000 * 60 * 60)) / (1000 * 60));
-    let secondi = Math.floor((distanza % (1000 * 60)) / 1000);
+            // DOM Elements
+            const eventsContainer = document.getElementById('events-container');
+            const allBtn = document.getElementById('all-btn');
+            const publicBtn = document.getElementById('public-btn');
+            const privateBtn = document.getElementById('private-btn');
+            const searchInput = document.getElementById('search');
+            const monthTabs = document.querySelectorAll('.month-tab');
 
-    let timerElement = document.getElementById("timer");
+            // Event Listeners
+            allBtn.addEventListener('click', () => {
+                setActiveButton(allBtn);
+                currentFilter = 'all';
+                filterAndDisplayEvents();
+            });
 
-    if (distanza > 0) {
-        timerElement.innerHTML = `${giorni}g ${ore}h ${minuti}m ${secondi}s`;
-    } else {
-        timerElement.innerHTML = "L'evento è in corso!";
-        clearInterval(interval); // Ferma il timer
-    }
-}
+            publicBtn.addEventListener('click', () => {
+                setActiveButton(publicBtn);
+                currentFilter = 'public';
+                filterAndDisplayEvents();
+            });
 
-setInterval(aggiornaCountdown, 1000);
+            privateBtn.addEventListener('click', () => {
+                setActiveButton(privateBtn);
+                currentFilter = 'private';
+                filterAndDisplayEvents();
+            });
 
-let meseCorrente = new Date().getMonth(); // Mese corrente (0-based)
-let annoCorrente = new Date().getFullYear(); // Anno corrente
+            searchInput.addEventListener('input', (e) => {
+                searchQuery = e.target.value.toLowerCase();
+                filterAndDisplayEvents();
+            });
 
-const eventi = {
-  '2025-04-20': {
-    titolo: 'Uscita nel Bosco',
-    data: '20 Aprile 2025',
-    descrizione: 'Escursione guidata per il riconoscimento dei funghi.',
-    luogo: 'Bosco di Clusone'
-  },
-  '2025-05-05': {
-    titolo: 'Conferenza sulla Micologia',
-    data: '5 Maggio 2025',
-    descrizione: 'Incontro serale con esperti micologi.',
-    luogo: 'Sala Civica, Rovetta'
-  },
-  '2025-06-15': {
-    titolo: 'Escursione in Montagna',
-    data: '15 Giugno 2025',
-    descrizione: 'Passeggiata con raccolta e pranzo all’aperto.',
-    luogo: 'Monte Farno'
-  }
-};
+            monthTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    monthTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    currentMonth = tab.dataset.month;
+                    filterAndDisplayEvents();
+                });
+            });
 
-function creaCalendario() {
-  const calendario = document.getElementById("calendar");
-  const meseNome = new Date(annoCorrente, meseCorrente).toLocaleString('it-IT', { month: 'long', year: 'numeric' });
-  document.getElementById("meseCorrente").textContent = meseNome;
+            // Functions
+            function setActiveButton(button) {
+                allBtn.classList.remove('active');
+                publicBtn.classList.remove('active');
+                privateBtn.classList.remove('active');
+                button.classList.add('active');
+            }
 
-  const giorniInMese = new Date(annoCorrente, meseCorrente + 1, 0).getDate();
-  const primoGiorno = new Date(annoCorrente, meseCorrente, 1);
-  const offset = (primoGiorno.getDay() + 6) % 7;
+            function formatDate(dateStr) {
+                const date = new Date(dateStr);
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                return date.toLocaleDateString('it-IT', options);
+            }
 
-  calendario.innerHTML = ''; // Pulisce il calendario precedente
+            function formatDateRange(startDate, endDate) {
+                const start = new Date(startDate);
+                const end = new Date(endDate);
+                
+                // Subtract one day from end date because ICS format uses exclusive end dates
+                end.setDate(end.getDate() - 1);
+                
+                const startFormatted = start.toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
+                
+                // If it's a one-day event
+                if (start.getTime() === end.getTime()) {
+                    return startFormatted;
+                }
+                
+                const endFormatted = end.toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
+                return `${startFormatted} - ${endFormatted}`;
+            }
 
-  const giorniSettimana = ['Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab', 'Dom'];
-  giorniSettimana.forEach(g => {
-    const el = document.createElement('div');
-    el.innerHTML = `<strong>${g}</strong>`;
-    calendario.appendChild(el);
-  });
+            function parseICalEvents(icalData) {
+                const jcalData = ICAL.parse(icalData);
+                const comp = new ICAL.Component(jcalData);
+                const vevents = comp.getAllSubcomponents('vevent');
+                
+                const parsedEvents = vevents.map(vevent => {
+                    const event = new ICAL.Event(vevent);
+                    
+                    // Get start and end dates
+                    const startDate = event.startDate.toJSDate();
+                    const endDate = event.endDate.toJSDate();
+                    
+                    // Skip recurring event definitions (we'll handle expanded instances separately)
+                    if (event.isRecurring()) {
+                        return null;
+                    }
+                    
+                    // Extract categories and determine if event is public or private
+                    let categories = vevent.getFirstPropertyValue('categories') || '';
+                    let accessType = vevent.getFirstPropertyValue('class') || 'PUBLIC';
+                    
+                    // Determine if public or private
+                    let isPublic = true;
+                    if (categories.includes('PRIVATO') || accessType === 'PRIVATE') {
+                        isPublic = false;
+                    }
+                    
+                    return {
+                        id: event.uid,
+                        title: event.summary,
+                        startDate: startDate,
+                        endDate: endDate,
+                        location: event.location || 'Non specificata',
+                        description: event.description || 'Nessuna descrizione disponibile',
+                        isPublic: isPublic,
+                        month: startDate.getMonth() + 1 // 1-based month
+                    };
+                }).filter(e => e !== null);
+                
+                // Handle recurring events
+                vevents.forEach(vevent => {
+                    const event = new ICAL.Event(vevent);
+                    
+                    if (event.isRecurring()) {
+                        const startYear = new Date().getFullYear();
+                        const endYear = startYear + 1;
+                        
+                        try {
+                            const expand = new ICAL.RecurExpansion({
+                                component: vevent,
+                                dtstart: event.startDate
+                            });
+                            
+                            let next;
+                            while ((next = expand.next())) {
+                                const occurrenceDate = next.toJSDate();
+                                
+                                // Only include occurrences in the current or next year
+                                if (occurrenceDate.getFullYear() >= startYear && occurrenceDate.getFullYear() <= endYear) {
+                                    const endDate = new Date(occurrenceDate);
+                                    
+                                    // Calculate end date based on duration
+                                    if (event.duration) {
+                                        endDate.setSeconds(endDate.getSeconds() + event.duration.toSeconds());
+                                    } else {
+                                        // Default to 1 hour if no duration
+                                        endDate.setHours(endDate.getHours() + 1);
+                                    }
+                                    
+                                    // Extract categories and determine if event is public or private
+                                    let categories = vevent.getFirstPropertyValue('categories') || '';
+                                    let accessType = vevent.getFirstPropertyValue('class') || 'PUBLIC';
+                                    
+                                    // Determine if public or private
+                                    let isPublic = true;
+                                    if (categories.includes('PRIVATO') || accessType === 'PRIVATE') {
+                                        isPublic = false;
+                                    }
+                                    
+                                    parsedEvents.push({
+                                        id: `${event.uid}-${occurrenceDate.getTime()}`,
+                                        title: event.summary,
+                                        startDate: occurrenceDate,
+                                        endDate: endDate,
+                                        location: event.location || 'Non specificata',
+                                        description: event.description || 'Nessuna descrizione disponibile',
+                                        isPublic: isPublic,
+                                        month: occurrenceDate.getMonth() + 1 // 1-based month
+                                    });
+                                }
+                            }
+                        } catch (e) {
+                            console.error('Error expanding recurring event:', e);
+                        }
+                    }
+                });
+                
+                // Sort events by start date
+                return parsedEvents.sort((a, b) => a.startDate - b.startDate);
+            }
 
-  for (let i = 0; i < offset; i++) {
-    calendario.appendChild(document.createElement('div'));
-  }
+            function filterAndDisplayEvents() {
+                filteredEvents = events.filter(event => {
+                    // Filter by type (public/private)
+                    if (currentFilter === 'public' && !event.isPublic) return false;
+                    if (currentFilter === 'private' && event.isPublic) return false;
+                    
+                    // Filter by month
+                    if (currentMonth !== 'all' && event.month !== parseInt(currentMonth)) return false;
+                    
+                    // Filter by search query
+                    if (searchQuery) {
+                        const query = searchQuery.toLowerCase();
+                        return event.title.toLowerCase().includes(query) || 
+                               event.description.toLowerCase().includes(query) ||
+                               event.location.toLowerCase().includes(query);
+                    }
+                    
+                    return true;
+                });
+                
+                displayEvents();
+            }
 
-  for (let giorno = 1; giorno <= giorniInMese; giorno++) {
-    const dataStr = `${annoCorrente}-${String(meseCorrente + 1).padStart(2, '0')}-${String(giorno).padStart(2, '0')}`;
-    const div = document.createElement('div');
-    div.className = 'giorno';
-    div.textContent = giorno;
+            function displayEvents() {
+                if (filteredEvents.length === 0) {
+                    eventsContainer.innerHTML = `
+                        <div class="no-events">
+                            <h3>Nessun evento trovato</h3>
+                            <p>Prova a modificare i filtri o la ricerca.</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                let html = '<div class="events-grid">';
+                
+                filteredEvents.forEach(event => {
+                    html += `
+                        <div class="event-card">
+                            <div class="event-header">
+                                <div class="event-date">
+                                    <i class="far fa-calendar"></i>
+                                    ${formatDateRange(event.startDate, event.endDate)}
+                                </div>
+                                <h3 class="event-title">${event.title}</h3>
+                                <div class="event-type ${event.isPublic ? 'public' : 'private'}">
+                                    ${event.isPublic ? 'Pubblico' : 'Privato'}
+                                </div>
+                            </div>
+                            <div class="event-body">
+                                <div class="event-info">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <p>${event.location}</p>
+                                </div>
+                                <div class="event-info">
+                                    <i class="fas fa-info-circle"></i>
+                                    <p>${event.description}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                html += '</div>';
+                eventsContainer.innerHTML = html;
+            }
 
-    if (eventi[dataStr]) {
-      div.classList.add('evento');
-      div.onclick = () => mostraDettaglio(dataStr);
-    }
-
-    calendario.appendChild(div);
-  }
-}
-
-function cambiaMese(direz) {
-  meseCorrente += direz;
-  if (meseCorrente > 11) {
-    meseCorrente = 0;
-    annoCorrente++;
-  } else if (meseCorrente < 0) {
-    meseCorrente = 11;
-    annoCorrente--;
-  }
-  creaCalendario(); // Rende di nuovo il calendario per il mese selezionato
-}
-
-function mostraDettaglio(data) {
-  const evento = eventi[data];
-  if (evento) {
-    document.getElementById("titoloEvento").textContent = evento.titolo;
-    document.getElementById("dataEvento").textContent = `📅 ${evento.data}`;
-    document.getElementById("descrizioneEvento").textContent = evento.descrizione;
-    document.getElementById("luogoEvento").textContent = `📍 ${evento.luogo}`;
-    document.getElementById("eventoDettaglio").classList.remove("hidden");
-  }
-}
-
-function chiudiDettaglio() {
-  document.getElementById("eventoDettaglio").classList.add("hidden");
-}
-
-document.addEventListener("DOMContentLoaded", creaCalendario);
+            // Fetch calendar data
+            fetch(CALENDAR_URL)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    events = parseICalEvents(data);
+                    filterAndDisplayEvents();
+                })
+                .catch(error => {
+                    console.error('Error fetching calendar data:', error);
+                    eventsContainer.innerHTML = `
+                        <div class="no-events">
+                            <h3>Errore nel caricamento degli eventi</h3>
+                            <p>Si è verificato un problema durante il caricamento del calendario. Riprova più tardi.</p>
+                        </div>
+                    `;
+                });
+        });
+    
