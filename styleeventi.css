@@ -103,7 +103,7 @@ p.subtitle {
 
 
 .event-card {
-  background-color: white;
+  background-color: rgb(192, 226, 56);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -121,7 +121,7 @@ p.subtitle {
   position: relative;
   padding: 1.5rem;
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  color: white;
+  color: rgb(55, 136, 49);
 }
 
 .private-event .event-header {
@@ -202,7 +202,7 @@ p.subtitle {
 
 .event-footer {
   padding: 1rem 1.5rem;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #8d3838;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -298,7 +298,7 @@ p.subtitle {
 .modal-header {
   padding: 2rem;
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  color: white;
+  color: rgb(225, 24, 128);
   position: relative;
 }
 
@@ -310,7 +310,7 @@ p.subtitle {
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
-  color: white;
+  color: rgb(224, 246, 26);
   background: rgba(255, 255, 255, 0.2);
   border: none;
   font-size: 1.5rem;
