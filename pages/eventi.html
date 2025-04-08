@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="/css/eventi.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <script defer src="/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ical.js@1.5.0/build/ical.min.js"></script>
     <script defer src="/js/scripteventi.js"></script>
-    <link rel="icon" type="image/x-icon" href="/images/fungo_icon.png">
 </head>
 <body>
 
@@ -39,38 +39,31 @@
         <h1>Eventi e Uscite</h1>
         <p>Scopri i nostri prossimi eventi e partecipa alle nostre uscite micologiche!</p>
     </section>
-
-    <!-- Countdown -->
-    <section class="countdown">
-        <h2>Prossimo evento tra:</h2>
-        <p id="timer"></p>
-    </section>
-
-    <!-- Calendario Eventi -->
-    <section class="calendario">
-        <h2>Calendario Eventi</h2>
-        
-        <div class="mese-nav">
-            <button id="prevMonth" onclick="cambiaMese(-1)">&#8249;</button>
-            <h3 id="meseCorrente"></h3>
-            <button id="nextMonth" onclick="cambiaMese(1)">&#8250;</button>
+    <div class="container events-container">
+        <div class="filters">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search-input" placeholder="Cerca eventi...">
+            </div>
+            <div class="filter-group">
+                <button class="filter-btn active" data-filter="all">Tutti</button>
+                <button class="filter-btn" data-filter="public">Pubblici</button>
+                <button class="filter-btn" data-filter="private">Privati</button>
+            </div>
         </div>
         
-        <div id="calendar" class="calendar-grid"></div>
+        <div id="events-grid" class="events-grid">
+            <div class="loading">
+                <i class="fas fa-spinner"></i> Caricamento eventi in corso...
+            </div>
+        </div>
+    </div>
     
-        <div id="eventoDettaglio" class="evento-dettaglio hidden">
-            <h3 id="titoloEvento"></h3>
-            <p id="dataEvento"></p>
-            <p id="descrizioneEvento"></p>
-            <p id="luogoEvento"></p>
-            <button onclick="chiudiDettaglio()">Chiudi</button>
+    <div id="event-modal" class="modal">
+        <div class="modal-content" id="modal-content">
+            <!-- Modal content will be dynamically added here -->
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2025 Gruppo Micologico - Tutti i diritti riservati</p>
-    </footer>
-
-</body>
-</html>
+    </div>
+    
+    
+    </body>
