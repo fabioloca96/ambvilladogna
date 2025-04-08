@@ -100,6 +100,33 @@ p.subtitle {
   gap: 2rem;
   margin-top: 2rem;
 }
+.event-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: -20px;
+  right: 20px;
+  background-color: white;
+  border-radius: 12px;
+  padding: 0.7rem;
+  min-width: 80px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.event-day {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-dark); /* Cambia il colore del testo */
+  line-height: 1;
+}
+
+.event-month {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--primary-dark); /* Cambia il colore del testo */
+}
 
 .event-card {
   background-color: white;
