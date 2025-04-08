@@ -119,9 +119,9 @@ header img {
     background: rgba(0,0,0,0.4); /* Overlay più scuro per la leggibilità */
     z-index: 1;
 }
-.hero-1 { background-image: url('images/hero2.webp'); }
-.hero-2 { background-image: url('images/hero1.jpg'); }
-.hero-3 { background-image: url('images/hero0.webp'); }
+.hero-1 { background-image: url('/images/hero2.webp'); }
+.hero-2 { background-image: url('/images/hero1.jpg'); }
+.hero-3 { background-image: url('/images/hero0.webp'); }
 
 .hero__content {
     position: relative;

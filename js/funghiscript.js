@@ -1,7 +1,7 @@
 let funghiData = [];
 
 document.addEventListener("DOMContentLoaded", function () {
-  fetch("schedefunghi.json")
+  fetch("/data/schedefunghi.json")
     .then(response => response.json())
     .then(data => {
       funghiData = data;

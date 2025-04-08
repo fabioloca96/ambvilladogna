@@ -3,7 +3,7 @@
 
 /* Hero Section */
 .hero.eventi {
-    background: url('images/heroeventi.webp') center/cover no-repeat;
+    background: url('/images/heroeventi.webp') center/cover no-repeat;
     text-align: center;
     padding: 80px 20px;
     color: white;
