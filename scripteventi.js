@@ -144,6 +144,8 @@ document.addEventListener('DOMContentLoaded', function() {
   
     events.forEach(event => {
       const eventDate = new Date(event.start);
+      console.log('Event Date:', eventDate); // Debugging
+  
       const day = eventDate.getDate();
       const month = eventDate.toLocaleString('it', { month: 'short' });
   
@@ -167,17 +169,6 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="event-time">
             <i class="far fa-clock"></i> ${startTime} - ${endTime}
           </div>
-        </div>
-        <div class="event-body">
-          <p class="event-description">${event.description}</p>
-          <div class="event-location">
-            <i class="fas fa-map-marker-alt"></i> ${event.location}
-          </div>
-          ${event.image ? `<img src="${event.image}" alt="Immagine Evento" class="event-image">` : ''}
-        </div>
-        <div class="event-footer">
-          <span class="event-badge ${badgeClass}">${badgeText}</span>
-          <a href="#" class="event-action">Dettagli <i class="fas fa-arrow-right"></i></a>
         </div>
       `;
   
