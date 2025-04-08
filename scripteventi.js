@@ -130,150 +130,144 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   function displayEvents(events) {
-      // Clear events grid
-      eventsGrid.innerHTML = '';
-      
-      if (events.length === 0) {
-          eventsGrid.innerHTML = `
-              <div class="no-events">
-                  <i class="fas fa-calendar-times"></i>
-                  <p>Nessun evento trovato</p>
-              </div>
-          `;
-          return;
-      }
-      
-      // Add events to grid
-      events.forEach(event => {
-          const eventDate = new Date(event.start);
-          const day = eventDate.getDate();
-          const month = eventDate.toLocaleString('it', { month: 'short' });
-          
-          const startTime = eventDate.toLocaleTimeString('it', { hour: '2-digit', minute: '2-digit' });
-          const endTime = new Date(event.end).toLocaleTimeString('it', { hour: '2-digit', minute: '2-digit' });
-          
-          const privateClass = event.isPrivate ? 'private-event' : '';
-          const badgeClass = event.isPrivate ? 'badge-private' : 'badge-public';
-          const badgeText = event.isPrivate ? 'Privato' : 'Pubblico';
-          
-          const eventCard = document.createElement('div');
-          eventCard.className = `event-card ${privateClass}`;
-          eventCard.setAttribute('data-event-id', event.id);
-          eventCard.innerHTML = `
-              <div class="event-header">
-                  <div class="event-date">
-                      <div class="event-day">${day}</div>
-                      <div class="event-month">${month}</div>
-                  </div>
-                  <h3 class="event-title">${event.title}</h3>
-                  <div class="event-time">
-                      <i class="far fa-clock"></i> ${startTime} - ${endTime}
-                  </div>
-              </div>
-              <div class="event-body">
-                  <p class="event-description">${event.description}</p>
-                  <div class="event-location">
-                      <i class="fas fa-map-marker-alt"></i> ${event.location}
-                  </div>
-              </div>
-              <div class="event-footer">
-                  <span class="event-badge ${badgeClass}">${badgeText}</span>
-                  <a href="#" class="event-action">Dettagli <i class="fas fa-arrow-right"></i></a>
-              </div>
-          `;
-          
-          // Add event listener for card click
-          eventCard.addEventListener('click', function() {
-              openEventModal(event);
-          });
-          
-          eventsGrid.appendChild(eventCard);
+    eventsGrid.innerHTML = '';
+  
+    if (events.length === 0) {
+      eventsGrid.innerHTML = `
+        <div class="no-events">
+          <i class="fas fa-calendar-times"></i>
+          <p>Nessun evento trovato</p>
+        </div>
+      `;
+      return;
+    }
+  
+    events.forEach(event => {
+      const eventDate = new Date(event.start);
+      const day = eventDate.getDate();
+      const month = eventDate.toLocaleString('it', { month: 'short' });
+  
+      const startTime = eventDate.toLocaleTimeString('it', { hour: '2-digit', minute: '2-digit' });
+      const endTime = new Date(event.end).toLocaleTimeString('it', { hour: '2-digit', minute: '2-digit' });
+  
+      const privateClass = event.isPrivate ? 'private-event' : '';
+      const badgeClass = event.isPrivate ? 'badge-private' : 'badge-public';
+      const badgeText = event.isPrivate ? 'Privato' : 'Pubblico';
+  
+      const eventCard = document.createElement('div');
+      eventCard.className = `event-card ${privateClass}`;
+      eventCard.setAttribute('data-event-id', event.id);
+      eventCard.innerHTML = `
+        <div class="event-header">
+          <div class="event-date">
+            <div class="event-day">${day}</div>
+            <div class="event-month">${month}</div>
+          </div>
+          <h3 class="event-title">${event.title}</h3>
+          <div class="event-time">
+            <i class="far fa-clock"></i> ${startTime} - ${endTime}
+          </div>
+        </div>
+        <div class="event-body">
+          <p class="event-description">${event.description}</p>
+          <div class="event-location">
+            <i class="fas fa-map-marker-alt"></i> ${event.location}
+          </div>
+          ${event.image ? `<img src="${event.image}" alt="Immagine Evento" class="event-image">` : ''}
+        </div>
+        <div class="event-footer">
+          <span class="event-badge ${badgeClass}">${badgeText}</span>
+          <a href="#" class="event-action">Dettagli <i class="fas fa-arrow-right"></i></a>
+        </div>
+      `;
+  
+      eventCard.addEventListener('click', function() {
+        openEventModal(event);
       });
+  
+      eventsGrid.appendChild(eventCard);
+    });
   }
   
   function openEventModal(event) {
-      const eventDate = new Date(event.start);
-      const endDate = new Date(event.end);
-      
-      const formattedDate = eventDate.toLocaleDateString('it', { 
-          weekday: 'long', 
-          day: 'numeric', 
-          month: 'long', 
-          year: 'numeric' 
-      });
-      
-      const startTime = eventDate.toLocaleTimeString('it', { hour: '2-digit', minute: '2-digit' });
-      const endTime = endDate.toLocaleTimeString('it', { hour: '2-digit', minute: '2-digit' });
-      
-      const modalClass = event.isPrivate ? 'modal-private' : '';
-      
-      modalContent.innerHTML = `
-          <div class="${modalClass}">
-              <div class="modal-header">
-                  <button class="modal-close" onclick="closeModal()">
-                      <i class="fas fa-times"></i>
-                  </button>
-                  <h2 class="modal-title">${event.title}</h2>
-                  <div class="modal-datetime">
-                      <i class="far fa-calendar-alt"></i> ${formattedDate}
-                  </div>
-                  <div class="modal-datetime">
-                      <i class="far fa-clock"></i> ${startTime} - ${endTime}
-                  </div>
-              </div>
-              <div class="modal-body">
-                  <div class="modal-description">
-                      ${event.description.replace(/\n/g, '<br>')}
-                  </div>
-                  
-                  <div class="modal-info">
-                      <div class="info-item">
-                          <div class="info-icon">
-                              <i class="fas fa-map-marker-alt"></i>
-                          </div>
-                          <div class="info-content">
-                              <div class="info-label">Luogo</div>
-                              <div class="info-value">${event.location}</div>
-                          </div>
-                      </div>
-                      
-                      <div class="info-item">
-                          <div class="info-icon">
-                              <i class="fas fa-user"></i>
-                          </div>
-                          <div class="info-content">
-                              <div class="info-label">Organizzatore</div>
-                              <div class="info-value">${event.organizer}</div>
-                          </div>
-                      </div>
-                      
-                      <div class="info-item">
-                          <div class="info-icon">
-                              <i class="fas ${event.isPrivate ? 'fa-lock' : 'fa-globe'}"></i>
-                          </div>
-                          <div class="info-content">
-                              <div class="info-label">Tipo evento</div>
-                              <div class="info-value">${event.isPrivate ? 'Privato' : 'Pubblico'}</div>
-                          </div>
-                      </div>
-                  </div>
-                  
-                  <div class="modal-actions">
-                      <button class="btn btn-primary" onclick="addToCalendar(event)">
-                          <i class="far fa-calendar-plus"></i> Aggiungi al calendario
-                      </button>
-                      ${event.url ? `
-                      <a href="${event.url}" target="_blank" class="btn btn-outline">
-                          <i class="fas fa-external-link-alt"></i> Vai all'evento
-                      </a>` : ''}
-                  </div>
-              </div>
+    const eventDate = new Date(event.start);
+    const endDate = new Date(event.end);
+  
+    const formattedDate = eventDate.toLocaleDateString('it', {
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    });
+  
+    const startTime = eventDate.toLocaleTimeString('it', { hour: '2-digit', minute: '2-digit' });
+    const endTime = endDate.toLocaleTimeString('it', { hour: '2-digit', minute: '2-digit' });
+  
+    const modalClass = event.isPrivate ? 'modal-private' : '';
+  
+    modalContent.innerHTML = `
+      <div class="${modalClass}">
+        <div class="modal-header">
+          <button class="modal-close" onclick="closeModal()">
+            <i class="fas fa-times"></i>
+          </button>
+          <h2 class="modal-title">${event.title}</h2>
+          <div class="modal-datetime">
+            <i class="far fa-calendar-alt"></i> ${formattedDate}
           </div>
-      `;
-      
-      modal.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
+          <div class="modal-datetime">
+            <i class="far fa-clock"></i> ${startTime} - ${endTime}
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="modal-description">
+            ${event.description.replace(/\n/g, '<br>')}
+          </div>
+          <div class="modal-info">
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="info-content">
+                <div class="info-label">Luogo</div>
+                <div class="info-value">${event.location}</div>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="info-content">
+                <div class="info-label">Organizzatore</div>
+                <div class="info-value">${event.organizer}</div>
+              </div>
+            </div>
+            ${event.image ? `<div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-image"></i>
+              </div>
+              <div class="info-content">
+                <div class="info-label">Immagine Evento</div>
+                <img src="${event.image}" alt="Immagine Evento" class="modal-event-image">
+              </div>
+            </div>` : ''}
+          </div>
+          <div class="modal-actions">
+            <button class="btn btn-primary" onclick="addToCalendar(event)">
+              <i class="far fa-calendar-plus"></i> Aggiungi al calendario
+            </button>
+            ${event.url ? `<a href="${event.url}" target="_blank" class="btn btn-outline">
+              <i class="fas fa-external-link-alt"></i> Vai all'evento
+            </a>` : ''}
+          </div>
+        </div>
+      </div>
+    `;
+  
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
   }
+  
   
   function showError(message) {
       eventsGrid.innerHTML = `
