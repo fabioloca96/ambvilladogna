@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Caricamento eventi dinamici
     let container = document.querySelector(".eventi-container");
     if (container) {
-        fetch("events.json")
+        fetch("/data/events.json")
             .then(response => response.json())
             .then(data => {
                 container.innerHTML = ""; 

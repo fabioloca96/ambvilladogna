@@ -2,7 +2,7 @@
 
 /* Hero section */
 .hero_funghi {
-  background: url('images/funghi-banner.jpg') center/cover no-repeat;
+  background: url('/images/funghi-banner.jpg') center/cover no-repeat;
   text-align: center;
   padding: 5rem 2rem;
   color: white;

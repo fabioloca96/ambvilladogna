@@ -2,7 +2,7 @@
 
 /* Hero Section */
 .hero.galleria {
-    background: url('img/galleria-hero.jpg') center/cover no-repeat;
+    background: url('/images/galleria-hero.jpg') center/cover no-repeat;
     text-align: center;
     padding: 80px 20px;
     color: white;

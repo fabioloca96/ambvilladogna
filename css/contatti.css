@@ -1,4 +1,3 @@
-
 /* HERO CONTATTI */
 .hero-contatti-section {
     background: linear-gradient(135deg, #f3f8ab, #fbff81);
@@ -9,6 +8,7 @@
     text-align: center;
     position: relative;
 }
+
 .hero-contatti-section::before {
     content: "";
     position: absolute;
@@ -16,6 +16,7 @@
     background: rgba(0, 0, 0, 0.4);
     z-index: 1;
 }
+
 .hero-contatti-wrapper {
     position: relative;
     z-index: 2;
@@ -26,21 +27,26 @@
     width: 90%;
     max-width: 500px;
 }
+
 .hero-contatti-wrapper h1 {
     font-size: 3rem;
     margin-bottom: 10px;
 }
+
 .hero-contatti-wrapper p {
     font-size: 1.2rem;
     margin-bottom: 30px;
 }
-.form-contattaci input, .form-contattaci textarea {
+
+.form-contattaci input,
+.form-contattaci textarea {
     width: 100%;
     padding: 15px;
     margin-bottom: 15px;
     border-radius: 8px;
     border: none;
 }
+
 .form-contattaci button {
     background-color: #0E6655;
     border: none;
@@ -49,6 +55,7 @@
     border-radius: 8px;
     cursor: pointer;
 }
+
 .form-contattaci button:hover {
     transform: scale(1.1);
     background-color: #084d3d;
@@ -64,27 +71,32 @@
     align-items: center;
     justify-content: center;
 }
+
 .mappa-e-contatti .mappa {
     flex: 1;
     min-width: 300px;
 }
+
 .mappa-e-contatti iframe {
     width: 100%;
     height: 300px;
     border-radius: 15px;
 }
+
 .contatti-info {
     flex: 1;
     min-width: 300px;
     background: #ffffff;
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
 }
+
 .contatti-info h2 {
     font-size: 2rem;
     margin-bottom: 20px;
 }
+
 .contatti-info p {
     margin-bottom: 10px;
     font-size: 1.1rem;
@@ -97,25 +109,30 @@
     text-align: center;
     padding: 60px 20px;
 }
+
 .newsletter-section h2 {
     font-size: 2.5rem;
 }
+
 .newsletter-section p {
     font-size: 1.2rem;
     margin-bottom: 30px;
 }
+
 .newsletter-section form {
     display: flex;
     justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
 }
+
 .newsletter-section input {
     padding: 12px 20px;
     border-radius: 50px;
     border: none;
     width: 300px;
 }
+
 .newsletter-section button {
     padding: 12px 35px;
     border-radius: 50px;
@@ -124,12 +141,25 @@
     color: white;
     cursor: pointer;
 }
+
 .newsletter-section button:hover {
     transform: scale(1.1);
     background-color: #084d3d;
 }
- 
 
+/* Privacy */
+.privacy-section {
+    background-color: #4C7031;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.privacy-section span:hover {
+    color: lightblue;
+    cursor: pointer;
+    text-align: center;
+}
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
@@ -137,7 +167,8 @@
         flex-direction: column;
     }
 
-    .info-contatti, .form-contattaci {
+    .info-contatti,
+    .form-contattaci {
         width: 100%;
     }
 
@@ -145,4 +176,3 @@
         height: 300px;
     }
 }
-
