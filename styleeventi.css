@@ -107,7 +107,7 @@ p.subtitle {
   position: absolute;
   top: -20px;
   right: 20px;
-  background-color: white;
+  background-color: rgb(12, 12, 12);
   border-radius: 12px;
   padding: 0.7rem;
   min-width: 80px;
