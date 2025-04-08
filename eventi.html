@@ -40,36 +40,42 @@
     </section>
 
     <!-- Countdown -->
-    <section class="countdown">
-        <h2>Prossimo evento tra:</h2>
-        <p id="timer"></p>
-    </section>
+    <div class="container">
+        <div class="filter-container">
+            <div class="filter-buttons">
+                <button id="all-btn" class="active"><i class="fas fa-calendar-alt"></i> Tutti gli eventi</button>
+                <button id="public-btn"><i class="fas fa-users"></i> Eventi pubblici</button>
+                <button id="private-btn"><i class="fas fa-user-lock"></i> Eventi privati</button>
+            </div>
 
-    <!-- Calendario Eventi -->
-    <section class="calendario">
-        <h2>Calendario Eventi</h2>
-        
-        <div class="mese-nav">
-            <button id="prevMonth" onclick="cambiaMese(-1)">&#8249;</button>
-            <h3 id="meseCorrente"></h3>
-            <button id="nextMonth" onclick="cambiaMese(1)">&#8250;</button>
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search" placeholder="Cerca eventi...">
+            </div>
+
+            <div class="month-filter">
+                <label>Filtra per mese:</label>
+                <div class="month-tabs">
+                    <div class="month-tab active" data-month="all">Tutti</div>
+                    <div class="month-tab" data-month="1">Gennaio</div>
+                    <div class="month-tab" data-month="2">Febbraio</div>
+                    <div class="month-tab" data-month="3">Marzo</div>
+                    <div class="month-tab" data-month="4">Aprile</div>
+                    <div class="month-tab" data-month="5">Maggio</div>
+                    <div class="month-tab" data-month="6">Giugno</div>
+                    <div class="month-tab" data-month="7">Luglio</div>
+                    <div class="month-tab" data-month="8">Agosto</div>
+                    <div class="month-tab" data-month="9">Settembre</div>
+                    <div class="month-tab" data-month="10">Ottobre</div>
+                    <div class="month-tab" data-month="11">Novembre</div>
+                    <div class="month-tab" data-month="12">Dicembre</div>
+                </div>
+            </div>
         </div>
-        
-        <div id="calendar" class="calendar-grid"></div>
-    
-        <div id="eventoDettaglio" class="evento-dettaglio hidden">
-            <h3 id="titoloEvento"></h3>
-            <p id="dataEvento"></p>
-            <p id="descrizioneEvento"></p>
-            <p id="luogoEvento"></p>
-            <button onclick="chiudiDettaglio()">Chiudi</button>
+        <div id="events-container">
+            <div class="loader">
+                <div class="loader-spinner"></div>
+            </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2025 Gruppo Micologico - Tutti i diritti riservati</p>
-    </footer>
-
-</body>
-</html>
+    </div>
+        </html>
