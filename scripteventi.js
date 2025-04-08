@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Configuration
-  const calendarPath = '/calendar/basics.ics'; // Percorso al file ICS caricato sul tuo server
+  const calendarPath = 'basics.ics'; // Percorso al file ICS caricato sul tuo server
   const eventsGrid = document.getElementById('events-grid');
   const modal = document.getElementById('event-modal');
   const modalContent = document.getElementById('modal-content');
