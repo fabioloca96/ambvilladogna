@@ -11,6 +11,22 @@
   --dark-grey: #9e9e9e;
 }
 
+.responsiveCal {
+  position: relative;
+  padding-bottom: 75%;
+  margin: 10%;
+  height: 0;
+  overflow: hidden;
+}
+
+.responsiveCal iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -440,45 +456,57 @@ p.subtitle {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes modalFadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 768px) {
   .filters {
-      flex-direction: column;
-      align-items: stretch;
+    flex-direction: column;
+    align-items: stretch;
   }
-  
+
   .search-box {
-      max-width: 100%;
-      margin-bottom: 1rem;
+    max-width: 100%;
+    margin-bottom: 1rem;
   }
-  
+
   .filter-group {
-      justify-content: center;
-      flex-wrap: wrap;
+    justify-content: center;
+    flex-wrap: wrap;
   }
-  
+
   .events-grid {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
-  
+
   .modal-content {
-      max-height: 95vh;
+    max-height: 95vh;
   }
-  
+
   .modal-actions {
-      flex-direction: column;
+    flex-direction: column;
   }
-  
+
   .btn {
-      width: 100%;
-      justify-content: center;
+    width: 100%;
+    justify-content: center;
   }
 }
