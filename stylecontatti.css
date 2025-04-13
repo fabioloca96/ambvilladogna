@@ -1,5 +1,70 @@
+.privacy-checkbox {
+    display: flex; /* Mantiene il layout in riga */
+    align-items: center; /* Allinea verticalmente checkbox e testo */
+    gap: 0; /* Rimuove lo spazio tra checkbox e testo */
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    color: #ffffff;
+}
 
-/* HERO CONTATTI */
+.privacy-checkbox input {
+    margin: 0; /* Rimuove margini predefiniti */
+    padding: 0; /* Rimuove padding predefinito */
+    width: 1.2rem; /* Dimensione della checkbox */
+    height: 1.2rem; /* Dimensione della checkbox */
+    flex-shrink: 0; /* Impedisce alla checkbox di ridimensionarsi */
+}
+
+.privacy-checkbox input[type="checkbox"] {
+    appearance: none; /* Rimuove lo stile predefinito del browser */
+    -webkit-appearance: none; /* Per compatibilità con Safari */
+    -moz-appearance: none; /* Per compatibilità con Firefox */
+    width: 1.2rem; /* Dimensione quadrata */
+    height: 1.2rem; /* Dimensione quadrata */
+    margin: 0; /* Rimuove margini predefiniti */
+    padding: 0; /* Rimuove padding predefinito */
+    border: 2px solid #ffffff; /* Bordo visibile */
+    border-radius: 4px; /* Angoli leggermente arrotondati */
+    background-color: transparent; /* Sfondo trasparente */
+    cursor: pointer; /* Cambia il cursore al passaggio */
+    display: inline-block;
+    position: relative;
+}
+
+.privacy-checkbox input[type="checkbox"]:checked {
+    background-color: var(--primary-color); /* Colore di sfondo quando selezionata */
+    border-color: var(--primary-color); /* Cambia il colore del bordo */
+}
+
+.privacy-checkbox input[type="checkbox"]:checked::after {
+    content: "✔"; /* Aggiunge un segno di spunta */
+    color: #ffffff;
+    font-size: 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.privacy-checkbox label {
+    display: flex; /* Mantiene il testo accanto alla checkbox */
+    align-items: center; /* Allinea verticalmente il testo */
+    cursor: pointer;
+    gap: 0.5rem; /* Spazio controllato tra checkbox e testo */
+    margin: 0; /* Rimuove margini predefiniti */
+    padding: 0; /* Rimuove padding predefinito */
+}
+
+.privacy-checkbox a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    white-space: nowrap; /* Evita che il testo vada a capo */
+}
+
 .hero-contatti-section {
     background: linear-gradient(135deg, #f3f8ab, #fbff81);
     height: 100vh;
@@ -7,7 +72,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    position: relative;
+    position: relative;   position: relative;
 }
 .hero-contatti-section::before {
     content: "";
