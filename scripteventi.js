@@ -144,13 +144,16 @@ document.addEventListener('DOMContentLoaded', function() {
   
     events.forEach(event => {
       const eventDate = new Date(event.start);
-      console.log('Event Date:', eventDate); // Debugging
-  
       const day = eventDate.getDate();
       const month = eventDate.toLocaleString('it', { month: 'short' });
   
       const startTime = eventDate.toLocaleTimeString('it', { hour: '2-digit', minute: '2-digit' });
       const endTime = new Date(event.end).toLocaleTimeString('it', { hour: '2-digit', minute: '2-digit' });
+  
+      // Controlla se l'ora è "00:00" e, in tal caso, non la mostra
+      const timeDisplay = startTime === "00:00" && endTime === "00:00" 
+          ? "" 
+          : `<i class="far fa-clock"></i> ${startTime} - ${endTime}`;
   
       const privateClass = event.isPrivate ? 'private-event' : '';
       const badgeClass = event.isPrivate ? 'badge-private' : 'badge-public';
@@ -167,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
           <h3 class="event-title">${event.title}</h3>
           <div class="event-time">
-            <i class="far fa-clock"></i> ${startTime} - ${endTime}
+            ${timeDisplay}
           </div>
         </div>
         <div class="event-body">
