@@ -158,16 +158,19 @@ p.subtitle {
   right: 20px;
   background-color: var(--white);
   border-radius: 12px;
-  padding: 0.7rem;
+  padding: 0.7rem 1rem; /* Aumentato il padding orizzontale */
   min-width: 80px;
+  min-height: 75px; /* Aggiunto min-height per dare più spazio */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  justify-content: center; /* Centrato verticalmente il contenuto */
 }
 
 .event-day {
   font-size: 1.8rem;
   font-weight: 700;
   color: var(--primary-dark);
-  line-height: 1;
+  line-height: 1.2; /* Aumentato leggermente il line-height */
+  margin-bottom: 2px; /* Aggiunto un piccolo margine sotto */
 }
 
 .event-month {
