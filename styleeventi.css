@@ -306,7 +306,7 @@ p.subtitle {
 }
 
 .modal-content {
-  background-color: var(--white);
+  background-color: var(--white); /* Bianco puro */
   border-radius: 16px;
   width: 100%;
   max-width: 800px;
@@ -314,6 +314,7 @@ p.subtitle {
   overflow-y: auto;
   position: relative;
   animation: modalFadeIn 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Aggiungo un'ombra per dargli più profondità */
 }
 
 .modal-header {
