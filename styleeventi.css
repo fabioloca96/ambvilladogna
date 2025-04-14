@@ -319,7 +319,7 @@ p.subtitle {
   overflow-y: auto;
   position: relative;
   animation: modalFadeIn 0.35s ease;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+  
 }
 
 .modal-header {
