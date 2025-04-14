@@ -154,23 +154,25 @@ p.subtitle {
   flex-direction: column;
   align-items: center;
   position: absolute;
-  top: -20px;
-  right: 20px;
+  top: -1.5rem; /* Relativo alla dimensione del font invece di pixel fissi */
+  right: 1.25rem;
   background-color: var(--white);
-  border-radius: 12px;
-  padding: 0.7rem 1rem; /* Aumentato il padding orizzontale */
-  min-width: 80px;
-  min-height: 75px; /* Aggiunto min-height per dare più spazio */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  justify-content: center; /* Centrato verticalmente il contenuto */
+  border-radius: 0.75rem;
+  padding: 0.8rem; /* Padding uniforme */
+  min-width: 5rem; /* Larghezza minima relativa */
+  min-height: 5.5rem; /* Altezza minima relativa */
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+  justify-content: center;
 }
 
 .event-day {
   font-size: 1.8rem;
   font-weight: 700;
   color: var(--primary-dark);
-  line-height: 1.2; /* Aumentato leggermente il line-height */
-  margin-bottom: 2px; /* Aggiunto un piccolo margine sotto */
+  line-height: 1.5;
+  margin-bottom: 0.25rem;
+  display: block;
+  text-align: center;
 }
 
 .event-month {
@@ -300,8 +302,7 @@ p.subtitle {
   left: 0;
   width: 100%;
   height: 100%;
-  /* Rimuoviamo il background-color rgba che crea l'overlay scuro */
-  /* background-color: rgba(0, 0, 0, 0.7); <-- RIMUOVI QUESTA RIGA */
+  background-color: rgba(0, 0, 0, 0.7); /* Overlay scuro solido */
   z-index: 1000;
   justify-content: center;
   align-items: center;
@@ -310,7 +311,7 @@ p.subtitle {
 }
 
 .modal-content {
-  background-color: var(--white); /* Bianco puro */
+  background-color: var(--white); /* Sfondo bianco solido per la finestra modale */
   border-radius: 16px;
   width: 100%;
   max-width: 800px;
@@ -318,7 +319,7 @@ p.subtitle {
   overflow-y: auto;
   position: relative;
   animation: modalFadeIn 0.3s ease;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Aggiungo un'ombra per dargli più profondità */
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
 }
 
 .modal-header {
