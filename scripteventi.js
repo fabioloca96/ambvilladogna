@@ -102,32 +102,45 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   function applyFilters() {
-      const searchTerm = searchInput.value.toLowerCase().trim();
-      
-      // Filter events based on current filter and search term
-      filteredEvents = allEvents.filter(event => {
-          // First apply type filter
-          if (currentFilter === 'public' && event.isPrivate) {
-              return false;
-          }
-          
-          if (currentFilter === 'private' && !event.isPrivate) {
-              return false;
-          }
-          
-          // Then apply search filter if there's a search term
-          if (searchTerm) {
-              return event.title.toLowerCase().includes(searchTerm) ||
-                     event.description.toLowerCase().includes(searchTerm) ||
-                     event.location.toLowerCase().includes(searchTerm);
-          }
-          
-          return true;
-      });
-      
-      // Display filtered events
-      displayEvents(filteredEvents);
-  }
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    const today = new Date();
+    
+    // Filter events based on current filter and search term
+    filteredEvents = allEvents.filter(event => {
+        // First apply type filter
+        if (currentFilter === 'public' && event.isPrivate) {
+            return false;
+        }
+        
+        if (currentFilter === 'private' && !event.isPrivate) {
+            return false;
+        }
+        
+        // Filter for upcoming events (events starting today or in the future)
+        if (currentFilter === 'upcoming') {
+            // Reset time to start of day for comparison
+            const todayStart = new Date(today);
+            todayStart.setHours(0, 0, 0, 0);
+            
+            // Check if event starts today or later
+            if (event.start < todayStart) {
+                return false;
+            }
+        }
+        
+        // Then apply search filter if there's a search term
+        if (searchTerm) {
+            return event.title.toLowerCase().includes(searchTerm) ||
+                   event.description.toLowerCase().includes(searchTerm) ||
+                   event.location.toLowerCase().includes(searchTerm);
+        }
+        
+        return true;
+    });
+    
+    // Display filtered events
+    displayEvents(filteredEvents);
+}
   
   function displayEvents(events) {
     eventsGrid.innerHTML = '';
