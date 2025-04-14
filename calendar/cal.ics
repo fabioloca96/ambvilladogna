@@ -1,0 +1,89 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//My Static Website//Events Calendar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:My Events
+X-WR-TIMEZONE:UTC
+
+BEGIN:VEVENT
+SUMMARY:Website Launch Party
+DTSTART:20250425T180000
+DTEND:20250425T210000
+LOCATION:Virtual Meeting
+DESCRIPTION:Join us for the official launch of our new website! We'll have special guests and giveaways.
+END:VEVENT
+
+BEGIN:VEVENT
+SUMMARY:Community Meetup
+DTSTART:20250510T130000
+DTEND:20250510T150000
+LOCATION:Main Street Cafe
+DESCRIPTION:Monthly community gathering to discuss upcoming projects and initiatives.
+END:VEVENT
+
+BEGIN:VEVENT
+SUMMARY:Web Development Workshop
+DTSTART:20250517T090000
+DTEND:20250517T160000
+LOCATION:Tech Hub Co-working Space
+DESCRIPTION:Full-day workshop on modern web development techniques. Bring your laptop!
+END:VEVENT
+
+BEGIN:VEVENT
+SUMMARY:Team Planning Session
+DTSTART:20250522T140000
+DTEND:20250522T160000
+LOCATION:Conference Room A
+DESCRIPTION:Quarterly planning session for our website content and features.
+END:VEVENT
+
+BEGIN:VEVENT
+SUMMARY:Online Webinar: SEO Basics
+DTSTART:20250605T110000
+DTEND:20250605T120000
+LOCATION:Zoom Meeting
+DESCRIPTION:Learn the basics of search engine optimization to improve your website's visibility.
+END:VEVENT
+
+BEGIN:VEVENT
+SUMMARY:Summer Networking Event
+DTSTART:20250620T180000
+DTEND:20250620T210000
+LOCATION:Rooftop Gardens
+DESCRIPTION:Casual networking event with refreshments and guest speakers.
+END:VEVENT
+
+BEGIN:VEVENT
+SUMMARY:Website Maintenance Day
+DTSTART:20250712T090000
+DTEND:20250712T170000
+LOCATION:Remote Work
+DESCRIPTION:Scheduled maintenance and updates for the website. Some features may be temporarily unavailable.
+END:VEVENT
+
+BEGIN:VEVENT
+SUMMARY:Content Creation Workshop
+DTSTART:20250725T130000
+DTEND:20250725T160000
+LOCATION:Creative Studio
+DESCRIPTION:Learn effective strategies for creating engaging website content.
+END:VEVENT
+
+BEGIN:VEVENT
+SUMMARY:User Experience Testing
+DTSTART:20250805T090000
+DTEND:20250805T120000
+LOCATION:Design Lab
+DESCRIPTION:Help us improve our website by participating in our user experience testing session.
+END:VEVENT
+
+BEGIN:VEVENT
+SUMMARY:Fall Planning Retreat
+DTSTART:20250820T090000
+DTEND:20250821T170000
+LOCATION:Mountain View Resort
+DESCRIPTION:Two-day planning retreat to prepare for fall website updates and marketing campaigns.
+END:VEVENT
+
+END:VCALENDAR

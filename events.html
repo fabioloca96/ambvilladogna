@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - My Static Website</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/events.css">
+    <link rel="icon" href="favicon.ico">
+</head>
+<body>
+    <!-- Header will be loaded here -->
+    <div id="header-container"></div>
+    
+    <!-- Navbar will be loaded here -->
+    <div id="navbar-container"></div>
+
+    <!-- Main Content Section -->
+    <main>
+        <section>
+            <h2>Upcoming Events</h2>
+            <p>Below you'll find our calendar of upcoming events. Click on an event for more details.</p>
+        </section>
+        
+        <section class="calendar-container">
+            <div class="calendar-controls">
+                <button id="prev-month">&lt; Previous</button>
+                <h3 id="current-month">Month Year</h3>
+                <button id="next-month">Next &gt;</button>
+            </div>
+            
+            <div id="calendar-view" class="calendar-grid">
+                <!-- Calendar will be generated here -->
+                <p class="loading-message">Loading calendar events...</p>
+            </div>
+        </section>
+        
+        <section class="event-list">
+            <h3>Event List</h3>
+            <div id="events-list">
+                <!-- Event list will be generated here -->
+            </div>
+        </section>
+        
+        <section id="event-details" class="event-details hidden">
+            <h3>Event Details</h3>
+            <div class="event-details-content">
+                <!-- Selected event details will be shown here -->
+            </div>
+            <button id="close-details">Close</button>
+        </section>
+    </main>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-container"></div>
+
+    <script src="assets/js/components.js"></script>
+    <script src="assets/js/events.js"></script>
+</body>
+</html>

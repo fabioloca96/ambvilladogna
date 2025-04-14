@@ -1,0 +1,149 @@
+/* Events Page Specific Styles */
+.calendar-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.calendar-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-controls button {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.calendar-controls button:hover {
+    background-color: #333;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-header {
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    background-color: #eee;
+}
+
+.calendar-day {
+    min-height: 80px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    background-color: white;
+}
+
+.calendar-day.other-month {
+    background-color: #f5f5f5;
+    color: #999;
+}
+
+.calendar-day.today {
+    border: 2px solid #333;
+}
+
+.day-number {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.event-indicator {
+    background-color: #4285f4;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    margin-bottom: 2px;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.event-indicator:hover {
+    background-color: #2b5797;
+}
+
+.event-list {
+    margin-top: 30px;
+}
+
+.event-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border-left: 4px solid #4285f4;
+    cursor: pointer;
+}
+
+.event-item:hover {
+    background-color: #f0f0f0;
+}
+
+.event-item .event-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.event-item .event-date {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.event-item .event-location {
+    font-style: italic;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.event-details {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.event-details.hidden {
+    display: none;
+}
+
+.event-details-content {
+    margin-bottom: 20px;
+}
+
+.event-details h4 {
+    margin-top: 0;
+    color: #333;
+}
+
+.loading-message {
+    grid-column: span 7;
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    color: #666;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .calendar-grid {
+        font-size: 0.8em;
+    }
+    
+    .calendar-day {
+        min-height: 60px;
+    }
+}

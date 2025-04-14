@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - My Static Website</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="icon" href="favicon.ico">
+</head>
+<body>
+    <!-- Header will be loaded here -->
+    <div id="header-container"></div>
+    
+    <!-- Navbar will be loaded here -->
+    <div id="navbar-container"></div>
+
+    <!-- Main Content Section -->
+    <main>
+        <section>
+            <h2>Contact Us</h2>
+            <p>We'd love to hear from you! Use the form below or reach out through any of the provided contact methods.</p>
+        </section>
+        
+        <section class="contact-form">
+            <h3>Send Us a Message</h3>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+        
+        <section class="contact-info">
+            <h3>Other Ways to Reach Us</h3>
+            <ul>
+                <li><strong>Email:</strong> info@mywebsite.com</li>
+                <li><strong>Phone:</strong> (123) 456-7890</li>
+                <li><strong>Address:</strong> 123 Web Street, Internet City, 12345</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-container"></div>
+
+    <script src="assets/js/components.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
