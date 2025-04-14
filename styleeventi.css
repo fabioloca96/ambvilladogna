@@ -438,6 +438,16 @@ p.subtitle {
 .btn i {
   margin-right: 0.5rem;
 }
+.badge-recurring {
+  background-color: rgba(156, 39, 176, 0.15);
+  color: #9c27b0;
+}
+
+.event-badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
 
 @keyframes spin {
   0% { transform: rotate(0deg); }
