@@ -1,16 +1,36 @@
-:root {
-  --primary: #2e7d32;
-  --primary-light: #60ad5e;
-  --primary-dark: #005005;
-  --secondary: #795548;
-  --secondary-light: #a98274;
-  --secondary-dark: #4b2c20;
-  --white: #5219bc;
-  --black: #212121;
-  --grey: #45e264;
-  --dark-grey: #9e9e9e;
-}
 
+root {
+  /* Palette principale */
+  --primary: #2e7d32;          /* Verde più scuro e accessibile */
+  --primary-light: #60ad5e;    /* Verde chiaro */
+  --primary-dark: #005005;     /* Verde molto scuro per contrasto */
+  
+  /* Palette secondaria */
+  --secondary: #795548;        /* Marrone/terra */
+  --secondary-light: #a98274;  /* Marrone chiaro */
+  --secondary-dark: #4b2c20;   /* Marrone scuro */
+  
+  /* Neutrali */
+  --white: #ffffff;            /* Bianco vero */
+  --black: #212121;            /* Quasi nero */
+  --grey: #e0e0e0;             /* Grigio chiaro vero */
+  --dark-grey: #757575;        /* Grigio scuro vero */
+  
+  /* Colori di stato/accento */
+  --success: #4caf50;          /* Verde per successo */
+  --error: #f44336;            /* Rosso per errori */
+  --accent: #ff9800;           /* Arancione per elementi in evidenza */
+  
+  /* Colori per testo */
+  --text-dark: #333333;        /* Per testo scuro su sfondo chiaro */
+  --text-light: #f5f5f5;       /* Per testo chiaro su sfondo scuro */
+  --text-muted: #757575;       /* Per testo secondario */
+  
+  /* Background */
+  --bg-light: #f9f9f9;         /* Sfondo chiaro */
+  --bg-card: #ffffff;          /* Sfondo card */
+  --bg-accent: #f5f5f5;        /* Sfondo elementi in evidenza */
+}
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -103,7 +123,8 @@ p.subtitle {
 
 
 .event-card {
-  background-color: rgb(192, 226, 56);
+  background-color: var(--bg-card);
+  /* resto del codice invariato */
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -120,8 +141,8 @@ p.subtitle {
 .event-header {
   position: relative;
   padding: 1.5rem;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  color: rgb(55, 136, 49);
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: var(--text-light);
 }
 
 .private-event .event-header {
@@ -135,7 +156,7 @@ p.subtitle {
   position: absolute;
   top: -20px;
   right: 20px;
-  background-color: rgb(210, 38, 38);
+  background-color: var(--white);
   border-radius: 12px;
   padding: 0.7rem;
   min-width: 80px;
@@ -145,7 +166,7 @@ p.subtitle {
 .event-day {
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--secondary-color);
+  color: var(--primary-dark);
   line-height: 1;
 }
 
@@ -153,7 +174,7 @@ p.subtitle {
   font-size: 0.9rem;
   text-transform: uppercase;
   font-weight: 600;
-  color: var(--primary-color);
+  color: var(--primary);
 }
 
 .event-title {
@@ -179,7 +200,7 @@ p.subtitle {
 
 .event-description {
   margin-bottom: 1.5rem;
-  color: #0ec91d;
+  color: var(--text-dark);
   font-size: 0.95rem;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -285,7 +306,7 @@ p.subtitle {
 }
 
 .modal-content {
-  background-color: rgb(90, 73, 174);
+  background-color: var(--white);
   border-radius: 16px;
   width: 100%;
   max-width: 800px;
@@ -298,7 +319,7 @@ p.subtitle {
 .modal-header {
   padding: 2rem;
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  color: rgb(225, 24, 128);
+  color: var(--text-light);
   position: relative;
 }
 
@@ -355,7 +376,7 @@ p.subtitle {
 }
 
 .modal-info {
-  background-color: #c311c3;
+  background-color: var(--bg-accent);
   border-radius: 12px;
   padding: 1.5rem;
   margin-bottom: 2rem;
